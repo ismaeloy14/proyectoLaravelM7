@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder {
   		private function seedUsers(){
   			DB::table('users')->delete();
   			$user = new User;
-  			$user->name = 'antonio';
-  			$user->email = 'antonio@gmail.com';
-  			$user->password = bcrypt('pisapedales');
+  			$user->name = 'test';
+  			$user->email = 'test@gmail.com';
+  			$user->password = bcrypt('test');
   			$user->save();
   		}
 
