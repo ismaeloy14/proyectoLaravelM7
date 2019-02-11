@@ -13,8 +13,8 @@ class AddVotesToMoviesTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::table('movies', function (Blueprint $table) {
+            $table->foreign('director')->references('nom_director')->on('directors');
         });
     }
 
@@ -25,7 +25,7 @@ class AddVotesToMoviesTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('movies', function (Blueprint $table) {
             //
         });
     }
