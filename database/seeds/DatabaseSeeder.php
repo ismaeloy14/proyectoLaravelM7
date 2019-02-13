@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder {
      * @return void
      */
     	public function run() {
-			//self::seedUsers();
-			//self::seedCatalog();
+			self::seedUsers();
+			self::seedCatalog();
 			self::seedActors();
 	  		$this->command->info('Tabla inicializada con datos!');
   		}
@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder {
 				'email' => 'test@testing.com', 
 				'password' => '$2a$10$UAHpN6DSPWTy1OXW53cWNe7iCfJw/.5ze5/sLqGzT4sTZZ8yLqvUe'
 			)
-			);
+		);
 		
 		private $arrayPeliculas = array(
 			array(
@@ -243,9 +243,4 @@ class DatabaseSeeder extends Seeder {
 			)
 		);
 		*/
-
-		
-
-  		
-    
 }
