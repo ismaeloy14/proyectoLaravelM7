@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Movie;
 use App\User;
+use App\Actor;
 
 class DatabaseSeeder extends Seeder {
     /**
@@ -11,10 +12,10 @@ class DatabaseSeeder extends Seeder {
      * @return void
      */
     	public function run() {
-			self::seedUsers();
-			self::seedCatalog();
-			self:seedActors();
-	  		$this->command->info('Tabla catálogo inicializada con datos!');
+			//self::seedUsers();
+			//self::seedCatalog();
+			self::seedActors();
+	  		$this->command->info('Tabla inicializada con datos!');
   		}
 
 
@@ -42,14 +43,30 @@ class DatabaseSeeder extends Seeder {
 		}
 
 		private function seedActors(){
-			DB::table('users')->delete();
-			$user = new User;
-			$user->name = 'test';
-			$user->email = 'test@gmail.com';
-			$user->password = bcrypt('test');
-			$user->save();
+			DB::table('actors')->delete();
+			foreach ( $this->actors as $actor ) {
+			    $a = new Actor;
+			    $a->nom_actor = $actor['nom_actor'];
+			    $a->nacionalitat = $actor['nacionalitat'];
+			    $a->data_naixement = $actor['data_naixement'];
+			    $a->save();
+			}
 		}
 
+		private $actors = array(
+			array(
+				'nom_actor' => 'Marlon Brando',
+				'nacionalitat' => 'Estats Units', 
+				'data_naixement' => '1924/04/03'
+			),
+			array(
+				'nom_actor' => 'Liam Neeson',
+				'nacionalitat' => 'Regne Unit', 
+				'data_naixement' => '1952/06/07'
+			)
+			);
+
+		/*
 		private $users = array(
 			array(
 				'name' => 'alex',
@@ -225,6 +242,7 @@ class DatabaseSeeder extends Seeder {
 				'synopsis' => 'Un joven hastiado de su gris y monótona vida lucha contra el insomnio. En un viaje en avión conoce a un carismático vendedor de jabón que sostiene una teoría muy particular: el perfeccionismo es cosa de gentes débiles; sólo la autodestrucción hace que la vida merezca la pena. Ambos deciden entonces fundar un club secreto de lucha, donde poder descargar sus frustaciones y su ira, que tendrá un éxito arrollador.'
 			)
 		);
+		*/
 
 		
 
