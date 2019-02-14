@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 use App\Movie;
 use App\User;
 use App\Actor;
@@ -13,6 +14,13 @@ class DatabaseSeeder extends Seeder {
      */
     	public function run() {
 			self::seedUsers();
+
+      Model::unguard();
+
+      $this->call(DirectorTableSeeder::class);
+
+      Model::reguard();
+
 			self::seedCatalog();
 			self::seedActors();
 	  		$this->command->info('Tabla inicializada con datos!');
@@ -46,6 +54,7 @@ class DatabaseSeeder extends Seeder {
 			}
 		}
 
+    
 
     private $arrayPeliculas = array(
     array(

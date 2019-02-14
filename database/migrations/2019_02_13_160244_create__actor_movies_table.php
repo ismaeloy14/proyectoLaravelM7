@@ -14,13 +14,17 @@ class CreateActorMoviesTable extends Migration
     public function up()
     {
         Schema::create('ActorMovies', function (Blueprint $table) {
-            $table->integer('id_actor');
-            $table->foreign('id_actor')->references('id_actor')->on('actor');
+            //$table->increments('id_ActorMovie');
+            $table->integer('id_actor')->unsigned();
+            $table->foreign('id_actor')->references('id')->on('actors');
 
-            $table->integer('id_movie');
+            $table->integer('id_movie')->unsigned();
             $table->foreign('id_movie')->references('id')->on('movies');
             
             $table->string('nom_personatge');
+
+            $table->primary(array('id_actor','id_movie'));
+            
         });
     }
 

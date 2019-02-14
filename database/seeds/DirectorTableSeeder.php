@@ -20,8 +20,8 @@ class DirectorTableSeeder extends Seeder
         DB::table('directors')->delete();
         foreach ( $this->arrayDirectors as $director ) {
             $d = new Director;
-            $d ->nom_director = $directror['nom_director'];
-            $d ->nacionalitat = $directror['nacionalitat'];
+            $d ->nom_director = $director['nom_director'];
+            $d ->nacionalitat = $director['nacionalitat'];
             $d ->data_naixement = $director['data_naixement'];
             $d->save();
         }

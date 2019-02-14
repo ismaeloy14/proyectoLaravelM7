@@ -15,7 +15,7 @@ class CreateDirectorsTable extends Migration
     {
         Schema::create('directors', function (Blueprint $table) {
             $table->string('nom_director', 64)->primary();
-            $table->string('nacionaliat');
+            $table->string('nacionalitat');
             $table->date('data_naixement');
         });
     }

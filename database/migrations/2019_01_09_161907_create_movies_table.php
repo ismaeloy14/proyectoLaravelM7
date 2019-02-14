@@ -18,7 +18,7 @@ class CreateMoviesTable extends Migration
             $table->string('title');
             $table->string('year', 8);
             $table->string('director', 64);
-            $table->foreign('director')->references('nom_director')->on('directors')->after('year');
+            $table->foreign('director')->references('nom_director')->on('directors');
             $table->string('poster');
             $table->boolean('rented')->default(false);
             $table->text('synopsis');
