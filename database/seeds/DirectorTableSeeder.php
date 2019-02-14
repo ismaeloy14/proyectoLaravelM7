@@ -12,7 +12,20 @@ class DirectorTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        self::seedDirectors();
+        $this->command->info('Tabla inicializada con datos!');
+    }
+    
+    private function seedDirectors(){
+        DB::table('directors')->delete();
+        foreach ( $this->arrayDirectors as $director ) {
+            $d = new Director;
+            $d ->nom_director = $directror['nom_director'];
+            $d ->nacionalitat = $directror['nacionalitat'];
+            $d ->data_naixement = $director['data_naixement'];
+            $d->save();
+        }
+        
     }
 
     private $arrayDirectors = array(
