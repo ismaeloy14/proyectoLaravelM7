@@ -84,10 +84,6 @@ class CatalogController extends Controller
     	return redirect('/catalog');
     }
 
-
-
-
-
 	/*private $arrayPeliculas = array(
 		array(
 			'title' => 'El padrino',

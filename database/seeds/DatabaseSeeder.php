@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Movie;
 use App\User;
+use App\Actor;
 
 class DatabaseSeeder extends Seeder {
     /**
@@ -11,8 +12,10 @@ class DatabaseSeeder extends Seeder {
      * @return void
      */
     	public function run() {
-	        self::seedUsers();
-	  		$this->command->info('Tabla catálogo inicializada con datos!');
+			self::seedUsers();
+			self::seedCatalog();
+			self::seedActors();
+	  		$this->command->info('Tabla inicializada con datos!');
   		}
 
 
@@ -23,7 +26,7 @@ class DatabaseSeeder extends Seeder {
   			$user->email = 'test@gmail.com';
   			$user->password = bcrypt('test');
   			$user->save();
-  		}
+  		}	
 
 
 
@@ -42,6 +45,7 @@ class DatabaseSeeder extends Seeder {
 			    $p->save();
 			}
 		}
+
 
     private $arrayPeliculas = array(
     array(
@@ -206,6 +210,46 @@ class DatabaseSeeder extends Seeder {
     )
   );
 
-  		
-    
+
+
+
+		private function seedActors(){
+			DB::table('actors')->delete();
+			foreach ( $this->actors as $actor ) {
+			    $a = new Actor;
+			    $a->nom_actor = $actor['nom_actor'];
+			    $a->nacionalitat = $actor['nacionalitat'];
+			    $a->data_naixement = $actor['data_naixement'];
+			    $a->save();
+			}
+		}
+
+		private $actors = array(
+			array(
+				'nom_actor' => 'Marlon Brando',
+				'nacionalitat' => 'Estats Units', 
+				'data_naixement' => '1924/04/03'
+			),
+			array(
+				'nom_actor' => 'Liam Neeson',
+				'nacionalitat' => 'Regne Unit', 
+				'data_naixement' => '1952/06/07'
+			)
+			);
+
+		/*
+		private $users = array(
+			array(
+				'name' => 'alex',
+				'email' => 'alexfreixa18@gmail.com', 
+				'password' => '$2a$10$42LMrLPm6nUYsl4UtRwxs.HTK18HQSHecgAX2MlESP.8rRGILaCi6'
+			),
+			array(
+				'name' => 'test',
+				'email' => 'test@testing.com', 
+				'password' => '$2a$10$UAHpN6DSPWTy1OXW53cWNe7iCfJw/.5ze5/sLqGzT4sTZZ8yLqvUe'
+			)
+		);*/
+		
+		
 }
