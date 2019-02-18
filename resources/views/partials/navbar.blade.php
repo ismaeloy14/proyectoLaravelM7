@@ -9,17 +9,26 @@
         @if( Auth::check() )
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
+
                     <li class="nav-item {{ Request::is('catalog') && ! Request::is('catalog/create')? 'active' : ''}}">
                         <a class="nav-link" href="{{url('/catalog')}}">
                             <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
                             Catálogo
                         </a>
                     </li>
+
                     <li class="nav-item {{  Request::is('catalog/create') ? 'active' : ''}}">
                         <a class="nav-link" href="{{url('/catalog/create')}}">
                             <span>&#10010</span> Nueva película
                         </a>
                     </li>
+
+                    <li class="nav-item {{  Request::is('actors/indexActors') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{url('/actors/indexActors')}}">
+                            <span>&#9733</span> Llista Actors
+                        </a>
+                    </li>
+
                 </ul>
 
                 <ul class="navbar-nav navbar-right">
