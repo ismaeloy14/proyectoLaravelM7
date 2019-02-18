@@ -32,81 +32,81 @@ class DirectorTableSeeder extends Seeder
     	array(
     		'nom_director' => 'Francis Ford Coppola',
     		'nacionalitat' => 'Estadounidense',
-    		'data_naixement' => '07/04/1939'
+    		'data_naixement' => '1939/04/07'
     	),
     	array(
     		'nom_director' => 'Steven Spielberg',
     		'nacionalitat' => 'Estadounidense',
-    		'data_naixement' => '18/12/1946'
+    		'data_naixement' => '1946/12/18'
     	),
         array(
     		'nom_director' => 'Quentin Tarantino',
     		'nacionalitat' => 'Estadounidense',
-    		'data_naixement' => '27/03/1963'
+    		'data_naixement' => '1963/03/27'
 	    	),
         array(
     		'nom_director' => 'Frank Darabont',
     		'nacionalitat' => 'Estadounidense',
-    		'data_naixement' => '28/01/1959'
+    		'data_naixement' => '1959/01/28'
     		),
     	array(
     		'nom_director' => 'George Roy Hill',
     		'nacionalitat' => 'Estadounidense',
-    		'data_naixement' => '20/12/1921'
+    		'data_naixement' => '1921/12/20'
 	    	),
     	array(
     		'nom_director' => 'Roberto Benigni',
     		'nacionalitat' => 'Italiana',
-    		'data_naixement' => '27/08/1952'
+    		'data_naixement' => '1952/08/27'
     		),
     	array(
     		'nom_director' => 'Martin Scorsese',
     		'nacionalitat' => 'Estadounidense y Italiana',
-    		'data_naixement' => '17/11/1942'
+    		'data_naixement' => '1942/11/17'
     		),
     	array(
     		'nom_director' => 'Milos Forman',
     		'nacionalitat' => 'Checo',
-    		'data_naixement' => '18/02/1932'
+    		'data_naixement' => '1932/02/18'
     		),
         array(
     		'nom_director' => 'Tony Kaye',
     		'nacionalitat' => 'Británico',
-    		'data_naixement' => '08/07/1952'
+    		'data_naixement' => '1952/07/08'
     		),
         array(
     		'nom_director' => 'Clint Eastwood',
     		'nacionalitat' => 'Estadounidense',
-    		'data_naixement' => '31/05/1930'
+    		'data_naixement' => '1930/05/31'
     		),
     	array(
     		'nom_director' => 'Brian De Palma',
     		'nacionalitat' => 'Estadounidense',
-    		'data_naixement' => '11/09/40'
+    		'data_naixement' => '1940/09/11'
     		),
     	array(
     		'nom_director' => 'Roman Polanski',
     		'nacionalitat' => 'Polaca y Francea',
-    		'data_naixement' => '19/08/1933'
+    		'data_naixement' => '1933/08/19'
     		),
         array(
     		'nom_director' => 'David Fincher',
     		'nacionalitat' => 'Estadounidense',
-    		'data_naixement' => '28/08/1962'
+    		'data_naixement' => '1962/08/28'
     		),
         array(
     		'nom_director' => 'Jonathan Demme',
     		'nacionalitat' => 'Estadounidense',
-    		'data_naixement' => '22/04/1944'
+    		'data_naixement' => '1944/04/22'
     		),
     	array(
     		'nom_director' => 'Stanley Kubrick',
     		'nacionalitat' => 'Estadounidense',
-    		'data_naixement' => '26/07/1928'
+    		'data_naixement' => '1928/07/26'
     		),
     	array(
     		'nom_director' => 'Ridley Scott',
     		'nacionalitat' => 'Británico',
-    		'data_naixement' => '30/11/1937'
+    		'data_naixement' => '1937/11/30'
     		));
 }
