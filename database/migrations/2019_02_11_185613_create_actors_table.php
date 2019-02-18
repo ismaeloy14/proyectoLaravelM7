@@ -17,6 +17,7 @@ class CreateActorsTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('nom_actor');
             $table->string('nacionalitat');
+            $table->string('retrato')->nullable();
             $table->date('data_naixement');
         });
     }

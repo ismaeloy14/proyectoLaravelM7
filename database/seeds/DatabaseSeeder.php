@@ -236,12 +236,14 @@ class DatabaseSeeder extends Seeder {
 		private $actors = array(
 			array(
 				'nom_actor' => 'Marlon Brando',
-				'nacionalitat' => 'Estats Units', 
+				'nacionalitat' => 'Estats Units',
+        'retrato'=> '', 
 				'data_naixement' => '1924/04/03'
 			),
 			array(
 				'nom_actor' => 'Liam Neeson',
-				'nacionalitat' => 'Regne Unit', 
+				'nacionalitat' => 'Regne Unit',
+        'retrato'=> '',  
 				'data_naixement' => '1952/06/07'
 			)
 			);
