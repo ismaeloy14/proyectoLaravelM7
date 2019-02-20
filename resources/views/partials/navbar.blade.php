@@ -25,7 +25,7 @@
 
                     <li class="nav-item {{  Request::is('actors/indexActors') ? 'active' : ''}}">
                         <a class="nav-link" href="{{url('/actors/indexActors')}}">
-                            <span>&#9733</span> Llista Actors
+                            <span>&#9733</span> Lista Actores
                         </a>
                     </li>
 

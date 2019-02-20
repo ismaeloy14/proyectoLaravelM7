@@ -38,7 +38,7 @@
 					<div class="form-group">
 						<label for="participa">Pel·licules on participa</label><br/>
 						@foreach( $arrayPeliculas as $pelicula )
-							<label><input type="checkbox" name="check_list[]" value=""> {{$pelicula->title}}</label>
+							<label><input type="checkbox" name="check_list[]" value=""> {{$pelicula->title}}</label><br/>
 						@endforeach
 					</div>
 
