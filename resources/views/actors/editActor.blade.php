@@ -31,6 +31,10 @@
 	               <input type="text" name="retrato" id="retrato" class="form-control" value="{{$actor->retrato}}">
 	            </div>
 
+					<div class="form-group">
+	               <label for="data_naixement">Retrato</label>
+	               <input type="date" name="data_naixement" id="data_naixement" class="form-control" value="{{$actor->data_naixement}}">
+	            </div>
 
 	            <div class="form-group text-center">
 	               <button type="submit" class="btn btn-primary" style="padding:8px 100px;margin-top:25px;">

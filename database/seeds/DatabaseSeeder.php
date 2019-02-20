@@ -236,15 +236,33 @@ class DatabaseSeeder extends Seeder {
 		private $actors = array(
 			array(
 				'nom_actor' => 'Marlon Brando',
-				'nacionalitat' => 'Estats Units',
-        'retrato'=> '', 
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTg3MDYyMDE5OF5BMl5BanBnXkFtZTcwNjgyNTEzNA@@._V1_UY317_CR97,0,214,317_AL_.jpg%C3%A7', 
 				'data_naixement' => '1924/04/03'
 			),
 			array(
 				'nom_actor' => 'Liam Neeson',
-				'nacionalitat' => 'Regne Unit',
-        'retrato'=> '',  
+				'nacionalitat' => 'Ingles',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjA1MTQ3NzU1MV5BMl5BanBnXkFtZTgwMDE3Mjg0MzE@._V1_UY317_CR52,0,214,317_AL_.jpg',  
 				'data_naixement' => '1952/06/07'
+      ),
+			array(
+				'nom_actor' => 'Al Pacino',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1940/04/25'
+      ),
+			array(
+				'nom_actor' => 'Al Pacino',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1940/04/25'
+			),
+			array(
+				'nom_actor' => 'Al Pacino',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1940/04/25'
 			)
 			);
 

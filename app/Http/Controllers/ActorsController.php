@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Notification;
 use App\Actor;
+use App\Movie;
 
 class ActorsController extends Controller
 {
@@ -25,7 +26,9 @@ class ActorsController extends Controller
 
 
     public function getCreate(){
-    	return view('actors.createActor');
+
+			$pelicula = Movie::All();
+    	return view('actors.createActor', array('arrayPeliculas'=>$pelicula));
     }
 
     public function getEdit($id){

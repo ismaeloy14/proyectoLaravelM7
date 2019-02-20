@@ -10,7 +10,7 @@
          </div>
          <div class="card-body" style="padding:30px">
 
-            <form method="POST" action="{{url('/actor/create')}}">
+            <form method="POST" action="{{url('/actors/createActor')}}">
 
 	            {{ csrf_field() }}
 	            
@@ -29,6 +29,19 @@
 	               <input type="text" name="retrato" id="retrato" class="form-control">
 	            </div>
 
+					<div class="form-group">
+	               <label for="data_naixement">Data de naixement</label>
+	               <input type="date" name="data_naixement" id="data_naixement" class="form-control">
+	            </div>
+
+					
+					<div class="form-group">
+						<label for="participa">Pel·licules on participa</label><br/>
+						@foreach( $arrayPeliculas as $pelicula )
+							<label><input type="checkbox" name="check_list[]" value=""> {{$pelicula->title}}</label>
+						@endforeach
+					</div>
+
 	            <div class="form-group text-center">
 	               <button type="submit" class="btn btn-primary" style="padding:8px 100px;margin-top:25px;">
 	                   Añadir actor
@@ -40,8 +53,4 @@
       </div>
    </div>
 </div>
-
-
-    
-
 @stop
