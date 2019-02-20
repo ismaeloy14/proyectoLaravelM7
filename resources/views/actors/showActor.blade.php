@@ -38,7 +38,7 @@
 			    {{ method_field('DELETE') }}
 			    {{ csrf_field() }}
 			    <button type="submit" class="btn btn-danger" style="display:inline">
-			        Elminar Actor
+			        Eliminar Actor
 			    </button>
 			</form>
 

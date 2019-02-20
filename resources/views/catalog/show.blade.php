@@ -76,7 +76,7 @@
 			    {{ method_field('DELETE') }}
 			    {{ csrf_field() }}
 			    <button type="submit" class="btn btn-danger" style="display:inline">
-			        Elminar película
+			        Eliminar película
 			    </button>
 			</form>
 

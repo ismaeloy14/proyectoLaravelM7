@@ -219,9 +219,6 @@ class DatabaseSeeder extends Seeder {
     )
   );
 
-
-
-
 		private function seedActors(){
 			DB::table('actors')->delete();
 			foreach ( $this->actors as $actor ) {
@@ -242,28 +239,17 @@ class DatabaseSeeder extends Seeder {
 			),
 			array(
 				'nom_actor' => 'Liam Neeson',
-				'nacionalitat' => 'Ingles',
-        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjA1MTQ3NzU1MV5BMl5BanBnXkFtZTgwMDE3Mjg0MzE@._V1_UY317_CR52,0,214,317_AL_.jpg',  
-				'data_naixement' => '1952/06/07'
+        'nacionalitat' => 'Ingles',
+        'data_naixement' => '1952/06/07',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjA1MTQ3NzU1MV5BMl5BanBnXkFtZTgwMDE3Mjg0MzE@._V1_UY317_CR52,0,214,317_AL_.jpg'
+				
       ),
 			array(
 				'nom_actor' => 'Al Pacino',
 				'nacionalitat' => 'Estadounidense',
         'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_UX214_CR0,0,214,317_AL_.jpg',  
 				'data_naixement' => '1940/04/25'
-      ),
-			array(
-				'nom_actor' => 'Al Pacino',
-				'nacionalitat' => 'Estadounidense',
-        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_UX214_CR0,0,214,317_AL_.jpg',  
-				'data_naixement' => '1940/04/25'
-			),
-			array(
-				'nom_actor' => 'Al Pacino',
-				'nacionalitat' => 'Estadounidense',
-        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_UX214_CR0,0,214,317_AL_.jpg',  
-				'data_naixement' => '1940/04/25'
-			)
+      )
 			);
 
 		/*

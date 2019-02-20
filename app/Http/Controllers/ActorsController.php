@@ -13,10 +13,8 @@ class ActorsController extends Controller
 
 
     public function getIndex(){
-		
-		$actors = Actor::all();
-		return view('actors.indexActors', array('arrayActors'=>$actors));
-
+			$actors = Actor::all();
+			return view('actors.indexActors', array('arrayActors'=>$actors));
     }
 
     public function getShow($id){
@@ -26,7 +24,6 @@ class ActorsController extends Controller
 
 
     public function getCreate(){
-
 			$pelicula = Movie::All();
     	return view('actors.createActor', array('arrayPeliculas'=>$pelicula));
     }
