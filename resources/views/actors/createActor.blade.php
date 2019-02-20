@@ -10,7 +10,7 @@
          </div>
          <div class="card-body" style="padding:30px">
 
-            <form method="POST" action="{{url('/actor/create')}}">
+            <form method="POST" action="{{url('/actors/createActor')}}">
 
 	            {{ csrf_field() }}
 	            

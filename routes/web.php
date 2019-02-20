@@ -34,7 +34,12 @@ Route::group(['middleware'=>'auth'], function(){
 	//Rutas de actores
 
 	Route::get('actors/indexActors', 'ActorsController@getIndex');
-	Route::get('catalog/showActor/{id}', 'ActorsController@getShow');
+	Route::get('actors/showActor/{id}', 'ActorsController@getShow');
+	Route::get('actors/createActor', 'ActorsController@getCreate');
+	Route::get('actors/editActor/{id}', 'ActorsController@getEdit');
 
+	Route::post('actors/createActor', 'ActorsController@postCreate');
+	Route::put('actors/edit/{id}', 'ActorsController@putEdit');
+	Route::delete('actors/delete/{id}', 'ActorsController@deleteActor');
 
 });

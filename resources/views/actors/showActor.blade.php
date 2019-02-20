@@ -33,7 +33,7 @@
             <a type="button" href="{{url('/actors/editActor/'.$actors->id)}}" class="btn btn-warning">Editar Actor</a>
 
 
-            <form action="{{action('CatalogController@deleteMovie', $actors->id)}}" 
+            <form action="{{action('ActorsController@deleteActor', $actors->id)}}" 
 			    method="POST" style="display:inline">
 			    {{ method_field('DELETE') }}
 			    {{ csrf_field() }}
@@ -44,7 +44,7 @@
 
 
 
-            <a type="button" href="{{url('/actors')}}" class="btn btn-default">Volver al listado</a>
+            <a type="button" href="{{url('/actors/indexActors')}}" class="btn btn-default">Volver al listado</a>
 
 
 
