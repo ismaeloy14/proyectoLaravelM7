@@ -39,7 +39,18 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::get('actors/editActor/{id}', 'ActorsController@getEdit');
 
 	Route::post('actors/createActor', 'ActorsController@postCreate');
-	Route::put('actors/edit/{id}', 'ActorsController@putEdit');
+	Route::put('actors/editActor/{id}', 'ActorsController@putEdit');
 	Route::delete('actors/delete/{id}', 'ActorsController@deleteActor');
+
+	//Rutas de directores
+
+	Route::get('directors/indexDirectors', 'DirectorsController@getIndex');
+	Route::get('directors/showDirector/{id}', 'DirectorsController@getShow');
+	Route::get('directors/createDirector', 'DirectorsController@getCreate');
+	Route::get('directors/editDirector/{id}', 'DirectorsController@getEdit');
+
+	Route::post('directors/createDirector', 'DirectorsController@postCreate');
+	Route::put('directors/editDirector/{id}', 'DirectorsController@putEdit');
+	Route::delete('directors/delete/{id}', 'DirectorsController@deleteDirector');
 
 });

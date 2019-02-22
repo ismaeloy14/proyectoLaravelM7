@@ -14,7 +14,8 @@ class CreateDirectorsTable extends Migration
     public function up()
     {
         Schema::create('directors', function (Blueprint $table) {
-            $table->string('nom_director', 64)->primary();
+            $table->increments('id');
+            $table->string('nom_director', 64);
             $table->string('nacionalitat');
             $table->date('data_naixement');
             $table->string('imagenDirector')->nullable();

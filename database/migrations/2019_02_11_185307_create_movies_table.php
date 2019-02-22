@@ -17,8 +17,8 @@ class CreateMoviesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('year', 8);
-            $table->string('director', 64);
-            $table->foreign('director')->references('nom_director')->on('directors');
+            $table->integer('id_director')->unsigned();
+            $table->foreign('id_director')->references('id')->on('directors');
             $table->string('poster')->nullable();
             $table->boolean('rented')->default(false);
             $table->text('synopsis');

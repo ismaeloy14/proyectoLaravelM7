@@ -29,6 +29,12 @@
                         </a>
                     </li>
 
+                    <li class="nav-item {{  Request::is('directors/indexDirectors') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{url('/directors/indexDirectors')}}">
+                            <span>🎥</span> Lista Directores
+                        </a>
+                    </li>
+
                 </ul>
 
                 <ul class="navbar-nav navbar-right">

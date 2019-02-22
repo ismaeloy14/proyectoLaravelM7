@@ -16,8 +16,8 @@ class DirectorsController extends Controller
 			return view('directors.indexDirectors', array('arrayDirectors'=>$directors));
     }
 
-    public function getShow($id){
-    	$directors = Director::findOrFail($id);
+    public function getShow($nom_director){
+    	$directors = Director::findOrFail($nom_director);
     	return view('directors.showDirector', array('directors'=>$directors));
     }
 

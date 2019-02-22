@@ -33,7 +33,7 @@ class DirectorTableSeeder extends Seeder
     		'nom_director' => 'Francis Ford Coppola',
     		'nacionalitat' => 'Estadounidense',
     		'data_naixement' => '1939/04/07',
-            'imagenDirector' => '',
+            'imagenDirector' => 'https://m.media-amazon.com/images/M/MV5BMTM5NDU3OTgyNV5BMl5BanBnXkFtZTcwMzQxODA0NA@@._V1_UX214_CR0,0,214,317_AL_.jpg',
     	),
     	array(
     		'nom_director' => 'Steven Spielberg',
