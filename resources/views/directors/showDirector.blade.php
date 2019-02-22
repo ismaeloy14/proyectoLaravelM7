@@ -8,7 +8,7 @@
 
 	        {{-- TODO: Imagen de la película --}}
 
-	       	<img src="{{$directors->imagenDirector}}" style="height:33em"/>
+	       	<img src="{{$directors->imagenDirector}}" style="height:33em;width: 23em"/>
 
 
 	    </div>
@@ -30,10 +30,10 @@
 
             
 
-            <a type="button" href="{{url('/directors/editDirector/'.$directors->nom_director)}}" class="btn btn-warning">Editar Drector</a>
+            <a type="button" href="{{url('/directors/editDirector/'.$directors->id)}}" class="btn btn-warning">Editar Drector</a>
 
 
-            <form action="{{action('DirectorsController@deleteDirector', $directors->nom_director)}}" 
+            <form action="{{action('DirectorsController@deleteDirector', $directors->id)}}" 
 			    method="POST" style="display:inline">
 			    {{ method_field('DELETE') }}
 			    {{ csrf_field() }}

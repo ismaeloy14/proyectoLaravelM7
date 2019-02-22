@@ -16,28 +16,27 @@ class DirectorsController extends Controller
 			return view('directors.indexDirectors', array('arrayDirectors'=>$directors));
     }
 
-    public function getShow($nom_director){
-    	$directors = Director::findOrFail($nom_director);
+    public function getShow($id){
+    	$directors = Director::findOrFail($id);
     	return view('directors.showDirector', array('directors'=>$directors));
     }
 
 
     public function getCreate(){
-			$pelicula = Movie::All();
-    	return view('directors.createDirector', array('arrayPeliculas'=>$pelicula));
+			$director = Movie::All();
+    	return view('directors.createDirector', array('arrayDrectors'=>$director));
     }
 
     public function getEdit($id){
-			$directors = Director::findOrFail($id);
-			$pelicula = Movie::All();
+		$directors = Director::findOrFail($id);
     	return view('directors.editDirector', array('directors'=>$directors));
     }
 
     public function postCreate(Request $request){
     	$directors = new Director;
     	$directors->nom_director = $request->input('nom_director');
-			$directors->nacionalitat = $request->input('nacionalitat');
-			$directors->data_naixement = $request->input('data_naixement');
+		$directors->nacionalitat = $request->input('nacionalitat');
+		$directors->data_naixement = $request->input('data_naixement');
     	$directors->imagenDirector = $request->input('imagenDirector');
     	$directors->save();
 
@@ -49,8 +48,8 @@ class DirectorsController extends Controller
     	$directors = Director::findOrFail($id);
     	$directors->nom_director = $request->input('nom_director');
     	$directors->nacionalitat = $request->input('nacionalitat');
-			$directors->data_naixement = $request->input('data_naixement');
-			$directors->imagenDirector = $request->input('imagenDirector');
+		$directors->data_naixement = $request->input('data_naixement');
+		$directors->imagenDirector = $request->input('imagenDirector');
     	$directors->save();
 
     	Notification::success('Director modificado');
