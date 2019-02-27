@@ -32,7 +32,9 @@ class CatalogController extends Controller
     	$movies = Movie::findOrFail($id);
     	$director = Director::findOrFail($movies->id_director);
     	$directors = Director::all();
-    	return view('catalog.edit', array('pelicula'=>$movies), array('director'=>$director), array('directors'=>$directors));
+    	//return view('catalog.edit', array('pelicula'=>$movies), array('director'=>$director), array('directors'=>$directors));
+
+		return view('catalog.edit', compact('movies','director','directors'));   	
     }
 
     public function postCreate(Request $request){
@@ -51,9 +53,11 @@ class CatalogController extends Controller
 
     public function putEdit(Request $request, $id){
     	$movies = Movie::findOrFail($id);
+    	//$director = Director::where('nom_director', $request->input('director'))->firstOrFail();
     	$movies->title = $request->input('title');
     	$movies->year = $request->input('year');
-    	$movies->director = $request->input('director');
+    	//$movies->director = $request->input('director');
+    	$movies->id_director = $request->input('director');
     	$movies->poster = $request->input('poster');
     	$movies->synopsis = $request->input('synopsis');
     	$movies->save();

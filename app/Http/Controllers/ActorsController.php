@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Notification;
 use App\Actor;
 use App\Movie;
+use App\ActorMovie;
 
 class ActorsController extends Controller
 {
@@ -35,10 +36,12 @@ class ActorsController extends Controller
 
     public function postCreate(Request $request){
     	$actors = new Actor;
+    	$actorMovies = new ActorMovie;
     	$actors->nom_actor = $request->input('nom_actor');
     	$actors->nacionalitat = $request->input('nacionalitat');
     	$actors->retrato = $request->input('retrato');
     	$actors->data_naixement = $request->input('data_naixement');
+    	//$actorMovies
     	$actors->save();
 
     	Notification::success('Actor añadido');
