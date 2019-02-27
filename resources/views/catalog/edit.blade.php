@@ -11,7 +11,7 @@
          <div class="card-body" style="padding:30px">
 
             {{-- TODO: Abrir el formulario e indicar el método POST --}}
-            <form method="POST" action="{{url('/catalog/edit/'.$pelicula->id)}}">
+            <form method="POST" action="{{url('/catalog/edit/'. $movies->id)}}">
 
             	{{method_field('PUT')}}
 
@@ -21,26 +21,26 @@
 
 	            <div class="form-group">
 	               <label for="title">Título</label>
-	               <input type="text" name="title" id="title" class="form-control" value="{{$pelicula->title}}">
+	               <input type="text" name="title" id="title" class="form-control" value="{{$movies->title}}">
 	            </div>
 
 	            <div class="form-group">
 	               {{-- TODO: Completa el input para el año --}}
 	               <label for="year">Año</label>
-	               <input type="text" name="year" id="year" class="form-control" value="{{$pelicula->year}}">
+	               <input type="text" name="year" id="year" class="form-control" value="{{$movies->year}}">
 	            </div>
 
 	            <div class="form-group">
 	               {{-- TODO: Completa el input para el director --}}
 	               <label for="director">Director</label>
-	               {{--<input type="text" name="director" id="director" class="form-control" value="{{$pelicula->director}}">--}}
+	               {{--<input type="text" name="director" id="director" class="form-control" value="{{$movies->director}}">--}}
 
-	               <select>
+	               <select name="director">
 	               		@foreach( $directors as $dire )
 	               			@if ($dire->nom_director == $director->nom_director)
-	               				<option name="director" id="director" class="form-control" value="" default>{{$dire->nom_director}}</option>
+	               				<option id="director" class="form-control" value="{{$dire->id}}" default>{{$dire->nom_director}}</option>
 	               			@else
-	               				<option name="director" id="director" class="form-control" value="">{{$dire->nom_director}}</option>
+	               				<option id="director" class="form-control" value="{{$dire->id}}">{{$dire->nom_director}}</option>
 	               			@endif
 	               		@endforeach
 	               </select>
@@ -51,12 +51,12 @@
 	            <div class="form-group">
 	               {{-- TODO: Completa el input para el poster --}}
 	               <label for="poster">Poster</label>
-	               <input type="text" name="poster" id="poster" class="form-control" value="{{$pelicula->poster}}">
+	               <input type="text" name="poster" id="poster" class="form-control" value="{{$movies->poster}}">
 	            </div>
 
 	            <div class="form-group">
 	               <label for="synopsis">Resumen</label>
-	               <textarea name="synopsis" id="synopsis" class="form-control" rows="3">{{$pelicula->synopsis}}</textarea>
+	               <textarea name="synopsis" id="synopsis" class="form-control" rows="3">{{$movies->synopsis}}</textarea>
 	            </div>
 
 	            <div class="form-group text-center">
