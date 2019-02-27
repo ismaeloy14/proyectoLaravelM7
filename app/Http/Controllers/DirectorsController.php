@@ -24,7 +24,7 @@ class DirectorsController extends Controller
 
     public function getCreate(){
 			$pelicula = Movie::All();
-    	return view('directors.createDirector', array('arrayPeliculas'=>$pelicula));
+			return view('directors.createDirector', array('arrayPeliculas'=>$pelicula));
     }
 
     public function getEdit($id){
