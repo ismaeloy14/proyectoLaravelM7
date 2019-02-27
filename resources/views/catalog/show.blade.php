@@ -25,7 +25,7 @@
             </h2>
 
             <h1 style="min-height:45px;margin:2px 0 3px 0;font-size: 2em;">
-                Director: {{$pelicula->director}}
+                Director: {{$directors->nom_director}}
             </h1><br>
 
             <p style="font-size: 18px;"><Strong>Resumen</Strong>: {{$pelicula->synopsis}}</p>

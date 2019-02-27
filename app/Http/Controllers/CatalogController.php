@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Movie;
+use App\Director;
 use Notification;
 
 class CatalogController extends Controller
@@ -19,7 +20,8 @@ class CatalogController extends Controller
 
     public function getShow($id){
     	$movies = Movie::findOrFail($id);
-    	return view('catalog.show', array('pelicula'=>$movies));
+    	$directors = Director::findOrFail($movies->id_director);
+    	return view('catalog.show', array('pelicula'=>$movies), array('directors'=>$directors));
     }
 
     public function getCreate(){
@@ -28,7 +30,9 @@ class CatalogController extends Controller
 
     public function getEdit($id){
     	$movies = Movie::findOrFail($id);
-    	return view('catalog.edit', array('pelicula'=>$movies));
+    	$director = Director::findOrFail($movies->id_director);
+    	$directors = Director::all();
+    	return view('catalog.edit', array('pelicula'=>$movies), array('director'=>$director), array('directors'=>$directors));
     }
 
     public function postCreate(Request $request){

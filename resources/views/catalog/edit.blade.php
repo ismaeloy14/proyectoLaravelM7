@@ -33,7 +33,19 @@
 	            <div class="form-group">
 	               {{-- TODO: Completa el input para el director --}}
 	               <label for="director">Director</label>
-	               <input type="text" name="director" id="director" class="form-control" value="{{$pelicula->director}}">
+	               {{--<input type="text" name="director" id="director" class="form-control" value="{{$pelicula->director}}">--}}
+
+	               <select>
+	               		@foreach( $directors as $dire )
+	               			@if ($dire->nom_director == $director->nom_director)
+	               				<option name="director" id="director" class="form-control" value="" default>{{$dire->nom_director}}</option>
+	               			@else
+	               				<option name="director" id="director" class="form-control" value="">{{$dire->nom_director}}</option>
+	               			@endif
+	               		@endforeach
+	               </select>
+
+
 	            </div>
 
 	            <div class="form-group">
