@@ -37,8 +37,8 @@
 
 	               <select name="director">
 	               		@foreach( $directors as $dire )
-	               			@if ($dire->nom_director == $director->nom_director)
-	               				<option id="director" class="form-control" value="{{$dire->id}}" default>{{$dire->nom_director}}</option>
+	               			@if ($dire->id == $movies->id_director)
+	               				<option id="director" selected="selected" class="form-control" value="{{$dire->id}}" default>{{$dire->nom_director}}</option>
 	               			@else
 	               				<option id="director" class="form-control" value="{{$dire->id}}">{{$dire->nom_director}}</option>
 	               			@endif

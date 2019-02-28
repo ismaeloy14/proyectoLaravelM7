@@ -7,14 +7,15 @@ use App\Http\Controllers\Controller;
 use Notification;
 use App\Actor;
 use App\Movie;
+use App\ActorMovie;
 
 class ActorsController extends Controller
 {
 
 
     public function getIndex(){
-			$actors = Actor::all();
-			return view('actors.indexActors', array('arrayActors'=>$actors));
+		$actors = Actor::all();
+		return view('actors.indexActors', array('arrayActors'=>$actors));
     }
 
     public function getShow($id){
@@ -31,16 +32,25 @@ class ActorsController extends Controller
     public function getEdit($id){
     	$actors = Actor::findOrFail($id);
     	return view('actors.editActor', array('actors'=>$actors));
-    }
+		}
+		
 
     public function postCreate(Request $request){
-    	$actors = new Actor;
-    	$actors->nom_actor = $request->input('nom_actor');
-    	$actors->nacionalitat = $request->input('nacionalitat');
-    	$actors->retrato = $request->input('retrato');
-    	$actors->data_naixement = $request->input('data_naixement');
-    	$actors->save();
+		$actors = new Actor;
+		$actorMovies = new ActorMovie;
+		$actors->nom_actor = $request->input('nom_actor');
+		$actors->nacionalitat = $request->input('nacionalitat');
+		$actors->retrato = $request->input('retrato');
+		$actors->data_naixement = $request->input('data_naixement');
 
+		$arrayCheckbox-> $request->input('checkbox_movie');
+
+		foreach ($arrayCheckbox as $checkbox) {
+			
+			$actorMovies->id_movie = $request->input('id_movie');
+
+		}
+    	
     	Notification::success('Actor añadido');
     	return redirect('/actors/indexActors');
     }
