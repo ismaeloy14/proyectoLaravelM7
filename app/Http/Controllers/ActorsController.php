@@ -72,7 +72,7 @@ class ActorsController extends Controller
     }
 
     public function deleteActor($id){
-			$actorMovies = ActorMovie::select("actors")->where('id_actor', '='	, $id);
+			$actorMovies = ActorMovie::select("actormovies")->where('id_actor', '='	, $id);
 			$actorMovies->delete();
 
 			$actors = Actor::findOrFail($id);
