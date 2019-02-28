@@ -13,7 +13,7 @@
             {{-- TODO: Abrir el formulario e indicar el método POST --}}
             <form method="POST" action="{{url('/catalog/edit/'. $movies->id)}}">
 
-            	{{method_field('PUT')}}
+            	{{ method_field('PUT') }}
 
 	            {{-- TODO: Protección contra CSRF --}}
 
@@ -38,7 +38,7 @@
 	               <select name="director">
 	               		@foreach( $directors as $dire )
 	               			@if ($dire->id == $movies->id_director)
-	               				<option id="director" selected="selected" class="form-control" value="{{$dire->id}}" default>{{$dire->nom_director}}</option>
+	               				<option id="director" class="form-control" value="{{$dire->id}}" default>{{$dire->nom_director}}</option>
 	               			@else
 	               				<option id="director" class="form-control" value="{{$dire->id}}">{{$dire->nom_director}}</option>
 	               			@endif

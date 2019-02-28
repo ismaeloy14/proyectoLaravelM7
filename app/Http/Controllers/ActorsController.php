@@ -43,13 +43,6 @@ class ActorsController extends Controller
 		$actors->retrato = $request->input('retrato');
 		$actors->data_naixement = $request->input('data_naixement');
 
-		$arrayCheckbox-> $request->input('checkbox_movie');
-
-		foreach ($arrayCheckbox as $checkbox) {
-			
-			$actorMovies->id_movie = $request->input('id_movie');
-
-		}
     	
     	Notification::success('Actor añadido');
     	return redirect('/actors/indexActors');
