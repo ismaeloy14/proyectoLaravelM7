@@ -42,7 +42,7 @@ class ActorsController extends Controller
     	$actors->retrato = $request->input('retrato');
     	$actors->data_naixement = $request->input('data_naixement');
     	$actors->save();
-    	
+
 
     	$ultimActor = Actor::select("actors")->max("id");
 
@@ -73,6 +73,7 @@ class ActorsController extends Controller
     public function deleteActor($id){
     	$actors = Actor::findOrFail($id);
     	$actors->delete();
+
 
     	Notification::success('Actor eliminado');
     	return redirect('/actors/indexActors');
