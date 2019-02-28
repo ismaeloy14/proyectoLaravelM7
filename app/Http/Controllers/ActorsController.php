@@ -36,12 +36,23 @@ class ActorsController extends Controller
 		
 
     public function postCreate(Request $request){
-		$actors = new Actor;
-		$actorMovies = new ActorMovie;
-		$actors->nom_actor = $request->input('nom_actor');
-		$actors->nacionalitat = $request->input('nacionalitat');
-		$actors->retrato = $request->input('retrato');
-		$actors->data_naixement = $request->input('data_naixement');
+    	$actors = new Actor;
+    	
+    	$actors->nom_actor = $request->input('nom_actor');
+    	$actors->nacionalitat = $request->input('nacionalitat');
+    	$actors->retrato = $request->input('retrato');
+    	$actors->data_naixement = $request->input('data_naixement');
+    	$actors->save();
+    	
+
+    	$ultimActor = Actor::select("actors")->max("id");
+
+    	foreach ($request->checkbox_movie as $checkbox_movie) {
+    		$actorMovies = new ActorMovie;
+    		$actorMovies->id_actor = $ultimActor;
+    		$actorMovies->id_movie = $checkbox_movie;
+    		$actorMovies->save();
+    	}
 
     	
     	Notification::success('Actor añadido');
@@ -61,9 +72,12 @@ class ActorsController extends Controller
     }
 
     public function deleteActor($id){
-    	$actors = Actor::findOrFail($id);
-    	$actors->delete();
+			$actorMovies = ActorMovie::select("actors")->where('id_actor', '='	, $id);
+			$actorMovies->delete();
 
+			$actors = Actor::findOrFail($id);
+			$actors->delete();
+			
     	Notification::success('Actor eliminado');
     	return redirect('/actors/indexActors');
     }

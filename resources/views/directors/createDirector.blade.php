@@ -34,13 +34,6 @@
 	               <input type="date" name="data_naixement" id="data_naixement" class="form-control">
 	            </div>
 
-					{{--
-					<div class="form-group">
-						<label for="participa">Pel·licules on participa</label><br/>
-						@foreach( $arrayDirectors as $director )
-							<label><input type="checkbox" name="check_list[]" value=""> {{$director->title}}</label><br/>
-						@endforeach
-					</div> --}}
 
 	            <div class="form-group text-center">
 	               <button type="submit" class="btn btn-primary" style="padding:8px 100px;margin-top:25px;">
