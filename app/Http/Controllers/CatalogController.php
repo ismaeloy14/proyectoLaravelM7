@@ -25,23 +25,31 @@ class CatalogController extends Controller
     }
 
     public function getCreate(){
-    	return view('catalog.create');
+			$directors = Director::all();
+    	return view('catalog.create', array('directors'=>$directors));
     }
 
     public function getEdit($id){
     	$movies = Movie::findOrFail($id);
     	$director = Director::findOrFail($movies->id_director);
     	$directors = Director::all();
-    	//return view('catalog.edit', array('pelicula'=>$movies), array('director'=>$director), array('directors'=>$directors));
+			
+			return view('catalog.edit', compact('movies', 'director', 'directors'));
 
-		return view('catalog.edit', compact('movies','director','directors'));   	
+			//Si volem passar 3 arrays, el ultim no es passa, només se'n passen 2, per exemple:
+			////return view('catalog.edit', array('pelicula'=>$movies), array('director'=>$director), array('directors'=>$directors));
+
+			//Solució: canviar-ho per una funcio que es diu "compact". Ho fem aixi:
+			// return view('catalog.edit', compact('movies', 'director', 'directors')); (sense sel simbol del $)
+			//A la vista cridem les variables directament com les anomanem a "compact", per exemple: movies->id
+
     }
 
     public function postCreate(Request $request){
     	$movies = new Movie;
     	$movies->title = $request->input('title');
     	$movies->year = $request->input('year');
-    	$movies->director = $request->input('director');
+    	$movies->id_director = $request->input('director');
     	$movies->poster = $request->input('poster');
     	$movies->synopsis = $request->input('synopsis');
     	$movies->rented = false;

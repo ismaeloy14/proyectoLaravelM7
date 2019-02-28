@@ -11,7 +11,7 @@
          <div class="card-body" style="padding:30px">
 
             {{-- TODO: Abrir el formulario e indicar el método POST --}}
-            <form method="POST" action="{{url('/catalog/edit/'.$movies->id)}}">
+            <form method="POST" action="{{url('/catalog/edit/'. $movies->id)}}">
 
             	{{ method_field('PUT') }}
 
@@ -37,7 +37,7 @@
 
 	               <select name="director">
 	               		@foreach( $directors as $dire )
-	               			@if ($dire->nom_director == $director->nom_director)
+	               			@if ($dire->id == $movies->id_director)
 	               				<option id="director" class="form-control" value="{{$dire->id}}" default>{{$dire->nom_director}}</option>
 	               			@else
 	               				<option id="director" class="form-control" value="{{$dire->id}}">{{$dire->nom_director}}</option>
