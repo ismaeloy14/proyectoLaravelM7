@@ -19,8 +19,7 @@ class CreateActorMoviesTable extends Migration
 
             $table->integer('id_movie')->unsigned();
             $table->foreign('id_movie')->references('id')->on('movies');
-            
-            $table->string('nom_personatge');
+
 
             $table->primary(array('id_actor','id_movie'));
             

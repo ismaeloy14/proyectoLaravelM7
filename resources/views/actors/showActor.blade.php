@@ -24,9 +24,13 @@
                 Fecha nacmiento: {{$actors->data_naixement}}
             </h2>
 
-            <h1 style="min-height:45px;margin:2px 0 3px 0;font-size: 2em;">
+            <h2 style="min-height:45px;margin:2px 0 3px 0;font-size: 2em;">
                 Nacionalidad: {{$actors->nacionalitat}}
-            </h1><br>
+            </h2><br>
+
+            <h2 style="min-height:45px;margin:2px 0 3px 0;font-size: 2em;">
+            	Peliculas en las que participa: 
+            </h2>
 
             
 
