@@ -189,7 +189,7 @@ class DatabaseSeeder extends Seeder {
       'title' => 'La chaqueta metálica',
       'year' => '1987', 
       'id_director' => '15', 
-      'poster' => 'http://www.vayacine.com/images/2007/06/el-caracol-metalico.jpg', 
+      'poster' => 'https://m.media-amazon.com/images/M/MV5BNzkxODk0NjEtYjc4Mi00ZDI0LTgyYjEtYzc1NDkxY2YzYTgyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg', 
       'rented' => true, 
       'synopsis' => 'Un grupo de reclutas se prepara en Parish Island, centro de entrenamiento de la marina norteamericana. Allí está el sargento Hartman, duro e implacable, cuya única misión en la vida es endurecer el cuerpo y el alma de los novatos, para que puedan defenderse del enemigo. Pero no todos los jóvenes están preparados para soportar sus métodos. '
     ),

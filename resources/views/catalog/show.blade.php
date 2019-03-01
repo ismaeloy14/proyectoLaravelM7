@@ -24,9 +24,10 @@
                 Año: {{$pelicula->year}}
             </h2>
 
-            <h1 style="min-height:45px;margin:2px 0 3px 0;font-size: 2em;">
-                Director: {{$directors->nom_director}}
-            </h1><br>
+			<p style="font-size: 18px;"><strong>Director:</strong>
+            <a href="{{ url('/directors/showDirector/' . $directors->id ) }}">
+                 {{$directors->nom_director}}</a>
+            </p>
 
             <p style="font-size: 18px;"><Strong>Resumen</Strong>: {{$pelicula->synopsis}}</p>
 

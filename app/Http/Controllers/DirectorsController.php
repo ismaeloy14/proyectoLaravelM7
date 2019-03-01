@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Notification;
 use App\Director;
 use App\Movie;
+use App\ActorMovie;
 
 class DirectorsController extends Controller
 {
@@ -17,8 +18,11 @@ class DirectorsController extends Controller
     }
 
     public function getShow($id){
-    	$directors = Director::findOrFail($id);
-    	return view('directors.showDirector', array('directors'=>$directors));
+			$director = Director::findOrFail($id);
+			$movies = Movie::where('id_director', '=', $id)->get();
+			
+			return view('directors.showDirector', array('director'=>$director), array('movies'=>$movies));
+			//return view('directors.showDirector', compact('director', 'directors', 'movies'));
     }
 
 

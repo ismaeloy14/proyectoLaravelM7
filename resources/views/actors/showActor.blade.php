@@ -28,7 +28,7 @@
                 Nacionalidad:</Strong> {{$actors->nacionalitat}}
             </p>
 
-			<p id="puntFinal"style="font-size: 18px;"><Strong>Peliculas en las que participa:</Strong>
+			<p id="puntFinal"style="font-size: 18px;"><Strong>Peliculas protagonizadas:</Strong>
 			@foreach($ActorMovies as $ActorMovie)
 					@foreach($movies as $movie)
 						<?php
@@ -73,7 +73,7 @@
 			llistat = llistat.substring(0, n) +'.'+ llistat.substring(n + 1);
 			document.getElementById("puntFinal").innerHTML = (llistat);
 		} else {
-			document.getElementById("puntFinal").innerHTML = llistat.substring(0, 55) + 'sense informació.';
+			document.getElementById("puntFinal").innerHTML = llistat.substring(0, 55) + 'sin información.';
 		}
 		
 
