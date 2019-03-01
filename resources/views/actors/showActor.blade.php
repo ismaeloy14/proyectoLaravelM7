@@ -28,7 +28,7 @@
                 Nacionalidad:</Strong> {{$actors->nacionalitat}}
             </p>
 
-            <a id="puntFinal"style="font-size: 18px;"><Strong>Peliculas en las que participa:</Strong>
+			<p id="puntFinal"style="font-size: 18px;"><Strong>Peliculas en las que participa:</Strong>
 			@foreach($ActorMovies as $ActorMovie)
 					@foreach($movies as $movie)
 						<?php
@@ -36,10 +36,11 @@
 						$idPeli = $movie->id
 						?>
 							@if ($idActorPeli == $idPeli)
-								{{$movie->title.','}}
+								
+								<a href="{{ url('/catalog/show/' . $movie->id ) }}">{{$movie->title}}</a>,
 							@endif
 					@endforeach
-				@endforeach</a>
+				@endforeach</p>
             
             <a type="button" href="{{url('/actors/editActor/'.$actors->id)}}" class="btn btn-warning">Editar Actor</a>
 
