@@ -18,12 +18,12 @@
 
 	            <div class="form-group">
 	               <label for="nom_director">Nombre</label>
-	               <input type="text" name="nom_director" id="nom_director" class="form-control" value="{{$directors->nom_director}}">
+	               <input type="text" name="nom_director" id="nom_director" class="form-control" value="{{$directors->nom_director}}" required>
 	            </div>
 
 	            <div class="form-group">
 	               <label for="nacionalitat">Nacionalidad</label>
-	               <input type="text" name="nacionalitat" id="nacionalitat" class="form-control" value="{{$directors->nacionalitat}}">
+	               <input type="text" name="nacionalitat" id="nacionalitat" class="form-control" value="{{$directors->nacionalitat}}" required>
 	            </div>
 
 	            <div class="form-group">
@@ -33,7 +33,7 @@
 
 				<div class="form-group">
 	               <label for="data_naixement">Fecha de nacimiento</label>
-	               <input type="date" name="data_naixement" id="data_naixement" class="form-control" value="{{$directors->data_naixement}}">
+	               <input type="date" name="data_naixement" id="data_naixement" class="form-control" value="{{$directors->data_naixement}}" required>
 	            </div>
 
 	            <div class="form-group text-center">

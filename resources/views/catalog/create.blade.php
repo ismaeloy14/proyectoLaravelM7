@@ -19,12 +19,12 @@
 	            
 	            <div class="form-group">
 	               <label for="title">Título</label>
-	               <input type="text" name="title" id="title" class="form-control">
+	               <input type="text" name="title" id="title" class="form-control" required>
 	            </div>
 
 	            <div class="form-group">
 	               <label for="year">Año</label>
-	               <input type="text" name="year" id="year" class="form-control">
+	               <input type="text" name="year" id="year" class="form-control" required>
 	            </div>
 
 
@@ -33,7 +33,7 @@
 						<br>
 						<select name="director">
 	               		@foreach( $directors as $dire )
-	               				<option id="director" class="form-control" value="{{$dire->id}}">{{$dire->nom_director}}</option>
+	               				<option id="director" class="form-control" value="{{$dire->id}}" required>{{$dire->nom_director}}</option>
 	               		@endforeach
 	               </select>
 
@@ -47,7 +47,7 @@
 	            </div>
 
 	            <div class="form-group">
-	               <label for="synopsis">Resumen</label>
+	               <label for="synopsis" required>Resumen</label>
 	               <textarea name="synopsis" id="synopsis" class="form-control" rows="3"></textarea>
 	            </div>
 

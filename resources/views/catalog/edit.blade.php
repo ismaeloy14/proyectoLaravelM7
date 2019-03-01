@@ -21,13 +21,13 @@
 
 	            <div class="form-group">
 	               <label for="title">Título</label>
-	               <input type="text" name="title" id="title" class="form-control" value="{{$movies->title}}">
+	               <input type="text" name="title" id="title" class="form-control" value="{{$movies->title}}" required>
 	            </div>
 
 	            <div class="form-group">
 	               {{-- TODO: Completa el input para el año --}}
 	               <label for="year">Año</label>
-	               <input type="text" name="year" id="year" class="form-control" value="{{$movies->year}}">
+	               <input type="text" name="year" id="year" class="form-control" value="{{$movies->year}}" required>
 	            </div>
 
 	            <div class="form-group">
@@ -35,7 +35,7 @@
 	               <label for="director">Director</label>
 	               {{--<input type="text" name="director" id="director" class="form-control" value="{{$movies->director}}">--}}
 
-	               <select name="director">
+	               <select name="director" required>
 	               		@foreach( $directors as $dire )
 	               			@if ($dire->id == $movies->id_director)
 	               				<option id="director" class="form-control" value="{{$dire->id}}" default>{{$dire->nom_director}}</option>
@@ -56,7 +56,7 @@
 
 	            <div class="form-group">
 	               <label for="synopsis">Resumen</label>
-	               <textarea name="synopsis" id="synopsis" class="form-control" rows="3">{{$movies->synopsis}}</textarea>
+	               <textarea name="synopsis" id="synopsis" class="form-control" rows="3" required>{{$movies->synopsis}}</textarea>
 	            </div>
 
 	            <div class="form-group text-center">

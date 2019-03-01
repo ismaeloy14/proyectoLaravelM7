@@ -14,14 +14,14 @@
 
 	            {{ csrf_field() }}
 	            
-					<div class="form-group">
+				<div class="form-group">
 	               <label for="nom_actor">Nombre</label>
-	               <input type="text" name="nom_actor" id="nom_actor" class="form-control">
+	               <input type="text" name="nom_actor" id="nom_actor" class="form-control" required>
 	            </div>
 
 	            <div class="form-group">
 	               <label for="nacionalitat">Nacionalidad</label>
-	               <input type="text" name="nacionalitat" id="nacionalitat" class="form-control">
+	               <input type="text" name="nacionalitat" id="nacionalitat" class="form-control" required>
 	            </div>
 
 	            <div class="form-group">
@@ -31,7 +31,7 @@
 
 					<div class="form-group">
 	               <label for="data_naixement">Data de naixement</label>
-	               <input type="date" name="data_naixement" id="data_naixement" class="form-control">
+	               <input type="date" name="data_naixement" id="data_naixement" class="form-control" required>
 	            </div>
 
 					

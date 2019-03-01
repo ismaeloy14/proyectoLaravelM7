@@ -14,13 +14,18 @@ class ActorsController extends Controller
 
 
     public function getIndex(){
-		$actors = Actor::all();
-		return view('actors.indexActors', array('arrayActors'=>$actors));
+			$actors = Actor::all();
+			return view('actors.indexActors', array('arrayActors'=>$actors));
     }
 
     public function getShow($id){
-    	$actors = Actor::findOrFail($id);
-    	return view('actors.showActor', array('actors'=>$actors));
+			$actors = Actor::findOrFail($id);
+			$ActorMovies = ActorMovie::where('id_actor', '=', $id)->get();
+			$movies = Movie::All();
+			
+			//return view('actors.showActor', array('actors'=>$actors), array('ActorMovies'=>$ActorMovies));
+			
+			return view('actors.showActor', compact('actors', 'ActorMovies', 'movies'));
     }
 
 
@@ -45,7 +50,7 @@ class ActorsController extends Controller
     	$actors->save();
 
 
-    	$ultimActor = Actor::select("actors")->max("id");
+			$ultimActor = Actor::max("id");
 
     	foreach ($request->checkbox_movie as $checkbox_movie) {
     		$actorMovies = new ActorMovie;
@@ -72,11 +77,11 @@ class ActorsController extends Controller
     }
 
     public function deleteActor($id){
-		$actorMovies = ActorMovie::select("actormovies")->where('id_actor', '='	, $id);
-		$actorMovies->delete();
+			$actorMovies = ActorMovie::where('id_actor', '='	, $id); //Elimina les relacions de ActorMovies
+			$actorMovies->delete();
 
-		$actors = Actor::findOrFail($id);
-		$actors->delete();
+			$actors = Actor::findOrFail($id); //Elimina el Actor un cop eliminat les relacions de ActorMovies
+			$actors->delete();
 			
     	Notification::success('Actor eliminado');
     	return redirect('/actors/indexActors');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Movie;
 use App\Director;
+use App\ActorMovie;
 use Notification;
 
 class CatalogController extends Controller
@@ -93,8 +94,12 @@ class CatalogController extends Controller
     }
 
     public function deleteMovie($id){
-    	$movies = Movie::findOrFail($id);
-    	$movies->delete();
+
+			$actorMovies = ActorMovie::where('id_movie', '='	, $id); //Elimina les relacions de ActorMovies (id_movie) amb
+			$actorMovies->delete();
+
+			$movies = Movie::findOrFail($id);
+			$movies->delete();
 
     	Notification::success('Pelicula borrada');
     	return redirect('/catalog');
