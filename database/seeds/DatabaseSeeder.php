@@ -225,7 +225,8 @@ class DatabaseSeeder extends Seeder {
 			    $a = new Actor;
 			    $a->nom_actor = $actor['nom_actor'];
 			    $a->nacionalitat = $actor['nacionalitat'];
-			    $a->data_naixement = $actor['data_naixement'];
+          $a->data_naixement = $actor['data_naixement'];
+          $a->retrato = $actor['retrato'];
 			    $a->save();
 			}
 		}
@@ -249,6 +250,102 @@ class DatabaseSeeder extends Seeder {
 				'nacionalitat' => 'Estadounidense',
         'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_UX214_CR0,0,214,317_AL_.jpg',  
 				'data_naixement' => '1940/04/25'
+      ),
+			array(
+				'nom_actor' => 'John Travolta',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTUwNjQ0ODkxN15BMl5BanBnXkFtZTcwMDc5NjQwNw@@._V1_UY317_CR11,0,214,317_AL_.jpg',  
+				'data_naixement' => '1954/02/18'
+      ),
+			array(
+				'nom_actor' => 'Morgan Freeman',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTc0MDMyMzI2OF5BMl5BanBnXkFtZTcwMzM2OTk1MQ@@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1937/06/01'
+      ),
+			array(
+				'nom_actor' => 'Paul Newman',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BODUwMDYwNDg3N15BMl5BanBnXkFtZTcwODEzNTgxMw@@._V1_UY317_CR22,0,214,317_AL_.jpg',  
+				'data_naixement' => '1925/01/26'
+      ),
+      array(
+				'nom_actor' => 'Roberto Benigni',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTUwMzI1Nzg5NF5BMl5BanBnXkFtZTYwODU5NjYz._V1_UY317_CR13,0,214,317_AL_.jpg',  
+				'data_naixement' => '1952/10/27'
+      ),
+      array(
+				'nom_actor' => 'Robert De Niro',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjAwNDU3MzcyOV5BMl5BanBnXkFtZTcwMjc0MTIxMw@@._V1_UY317_CR13,0,214,317_AL_.jpg',  
+				'data_naixement' => '1943/08/17'
+      ),
+      array(
+				'nom_actor' => 'Jack Nicholson',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTQ3OTY0ODk0M15BMl5BanBnXkFtZTYwNzE4Njc4._V1_UY317_CR7,0,214,317_AL_.jpg',  
+				'data_naixement' => '1937/04/22'
+      ),
+      array(
+				'nom_actor' => 'Edward Norton',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTYwNjQ5MTI1NF5BMl5BanBnXkFtZTcwMzU5MTI2Mw@@._V1_UY317_CR16,0,214,317_AL_.jpg',  
+				'data_naixement' => '1969/08/18'
+      ),
+      array(
+				'nom_actor' => 'Clint Eastwood',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTg3MDc0MjY0OV5BMl5BanBnXkFtZTcwNzU1MDAxOA@@._V1_UY317_CR10,0,214,317_AL_.jpg',  
+				'data_naixement' => '1930/05/31'
+      ),
+      array(
+				'nom_actor' => 'Adrien Brody',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjI3ODkxMjU3OF5BMl5BanBnXkFtZTgwMTk2Njk3MTE@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1930/05/31'
+      ),
+      array(
+				'nom_actor' => 'Adrien Brody',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjI3ODkxMjU3OF5BMl5BanBnXkFtZTgwMTk2Njk3MTE@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1973/04/14'
+      ),
+      array(
+				'nom_actor' => 'Brad Pitt',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1963/12/18'
+      ),
+      array(
+				'nom_actor' => 'Anthony Hopkins',
+				'nacionalitat' => 'Galesa',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTg5ODk1NTc5Ml5BMl5BanBnXkFtZTYwMjAwOTI4._V1_UY317_CR6,0,214,317_AL_.jpg',  
+				'data_naixement' => '1937/12/31'
+      ),
+      array(
+				'nom_actor' => 'Malcolm McDowell',
+				'nacionalitat' => 'Inglesa',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTcxMjQxNzczM15BMl5BanBnXkFtZTcwMTg3MTMwNw@@._V1_UY317_CR6,0,214,317_AL_.jpg',  
+				'data_naixement' => '1943/06/13'
+      ),
+      array(
+				'nom_actor' => 'Matthew Modine',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTcxMjQxNzczM15BMl5BanBnXkFtZTcwMTg3MTMwNw@@._V1_UY317_CR6,0,214,317_AL_.jpg',  
+				'data_naixement' => '1943/06/13'
+      ),
+      array(
+				'nom_actor' => 'Harrison Ford',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTY4Mjg0NjIxOV5BMl5BanBnXkFtZTcwMTM2NTI3MQ@@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1942/07/13'
+      ),
+      array(
+				'nom_actor' => 'Cybill Shepherd',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTY4Mjg0NjIxOV5BMl5BanBnXkFtZTcwMTM2NTI3MQ@@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1950/02/18'
       )
 			);
 
