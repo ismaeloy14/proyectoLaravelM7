@@ -18,6 +18,7 @@
     @endforeach
 
 </div>
-<a type="button" href="{{url('/directors/createDirector')}}" class="btn btn-success" style="font-size: 20px"><span>&#43;</span> Añadir director</a>
+
+<a href="{{ url('/directors/createDirector') }}" class="anadir"><button type="button" class="btn btn-success float-right"><span>&#43;</span> Añadir director</button></a>
 
 @stop

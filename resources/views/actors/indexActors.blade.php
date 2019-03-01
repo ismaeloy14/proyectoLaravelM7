@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="row">
+    <div class="row files">
 
     @foreach( $arrayActors as $actors )
     <div class="col-xs-6 col-sm-4 col-md-3 text-center">
@@ -18,6 +18,7 @@
     @endforeach
 
 </div>
-<a type="button" href="{{url('/actors/createActor')}}" class="btn btn-success" style="font-size: 20px"><span>&#43;</span> Añadir actor</a>
+
+<a href="{{ url('/actors/createActor') }}"><button type="button" class="btn btn-success float-right"><span>&#43;</span> Añadir actor</button></a>
 
 @stop
