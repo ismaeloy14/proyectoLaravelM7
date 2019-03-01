@@ -29,8 +29,10 @@
             </h1><br>
 
             
+			<a class="btn btn-warning" href="{{ url('/directors/editDirector/'.$directors->id) }}"><span class="glyphicon glyphicon-pencil"></span>Editar actor</a>
 
-            <a type="button" href="{{url('/directors/editDirector/'.$directors->id)}}" class="btn btn-warning">Editar Drector</a>
+        
+			
 
 
             <form action="{{action('DirectorsController@deleteDirector', $directors->id)}}" 
@@ -38,13 +40,11 @@
 			    {{ method_field('DELETE') }}
 			    {{ csrf_field() }}
 			    <button type="submit" class="btn btn-danger" style="display:inline">
-			        Elminar Director
+			        Eliminar Director
 			    </button>
 			</form>
 
-
-
-            <a type="button" href="{{url('/directors/indexDirectors')}}" class="btn btn-default">Volver al listado</a>
+			<a class="btn btn-default" href="{{ url('/directors/indexDirectors') }}"><span class="glyphicon glyphicon-chevron-left"></span>Volver al listado</a>
 
 
 

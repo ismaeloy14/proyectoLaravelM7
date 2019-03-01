@@ -42,7 +42,10 @@
 					@endforeach
 				@endforeach</p>
             
-            <a type="button" href="{{url('/actors/editActor/'.$actors->id)}}" class="btn btn-warning">Editar Actor</a>
+			<a class="btn btn-warning" href="{{ url('/actors/editActor/'.$actors->id) }}"><span class="glyphicon glyphicon-pencil"></span>Editar actor</a>
+			
+			
+			
 
 
             <form action="{{action('ActorsController@deleteActor', $actors->id)}}" 
@@ -54,7 +57,7 @@
 			    </button>
 			</form>
 
-            <a type="button" href="{{url('/actors/indexActors')}}" class="btn btn-default">Volver al listado</a>
+			<a class="btn btn-default" href="{{ url('/actors/indexActors') }}"><span class="glyphicon glyphicon-chevron-left"></span>Volver al listado</a>
 
 
 

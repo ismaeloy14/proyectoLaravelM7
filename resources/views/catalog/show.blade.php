@@ -68,7 +68,7 @@
 
             @endif
 
-            <a type="button" href="{{url('/catalog/edit/'.$pelicula->id)}}" class="btn btn-warning">Editar Pelicula</a>
+			<a href="{{ url('/catalog/edit/' . $pelicula->id ) }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>Editar película</a>
 
 
             <form action="{{action('CatalogController@deleteMovie', $pelicula->id)}}" 
@@ -82,7 +82,8 @@
 
 
 
-            <a type="button" href="{{url('/catalog')}}" class="btn btn-default">Volver al listado</a>
+            
+			<a class="btn btn-default" href="{{ url('/catalog/') }}"><span class="glyphicon glyphicon-chevron-left"></span>Volver al listado</a>
 
 
 

@@ -10,12 +10,9 @@
          </div>
          <div class="card-body" style="padding:30px">
 
-            {{-- TODO: Abrir el formulario e indicar el método POST --}}
             <form method="POST" action="{{url('/catalog/edit/'. $movies->id)}}">
 
             	{{ method_field('PUT') }}
-
-	            {{-- TODO: Protección contra CSRF --}}
 
 	            {{ csrf_field() }}
 
@@ -25,17 +22,14 @@
 	            </div>
 
 	            <div class="form-group">
-	               {{-- TODO: Completa el input para el año --}}
 	               <label for="year">Año</label>
 	               <input type="text" name="year" id="year" class="form-control" value="{{$movies->year}}">
 	            </div>
 
 	            <div class="form-group">
-	               {{-- TODO: Completa el input para el director --}}
 	               <label for="director">Director</label>
-	               {{--<input type="text" name="director" id="director" class="form-control" value="{{$movies->director}}">--}}
 
-	               <select name="director">
+	               <select name="director" class="form-control">
 	               		@foreach( $directors as $dire )
 	               			@if ($dire->id == $movies->id_director)
 	               				<option id="director" class="form-control" value="{{$dire->id}}" default>{{$dire->nom_director}}</option>
@@ -49,7 +43,6 @@
 	            </div>
 
 	            <div class="form-group">
-	               {{-- TODO: Completa el input para el poster --}}
 	               <label for="poster">Poster</label>
 	               <input type="text" name="poster" id="poster" class="form-control" value="{{$movies->poster}}">
 	            </div>
@@ -65,7 +58,6 @@
 	               </button>
 	            </div>
 
-	            {{-- TODO: Cerrar formulario --}}
         	</form>
          </div>
       </div>
