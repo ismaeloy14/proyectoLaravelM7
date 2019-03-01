@@ -14,8 +14,8 @@ class ActorsController extends Controller
 
 
     public function getIndex(){
-			$actors = Actor::all();
-			return view('actors.indexActors', array('arrayActors'=>$actors));
+		$actors = Actor::all();
+		return view('actors.indexActors', array('arrayActors'=>$actors));
     }
 
     public function getShow($id){
@@ -32,7 +32,8 @@ class ActorsController extends Controller
     public function getEdit($id){
     	$actors = Actor::findOrFail($id);
     	return view('actors.editActor', array('actors'=>$actors));
-    }
+		}
+		
 
     public function postCreate(Request $request){
     	$actors = new Actor;
@@ -71,10 +72,12 @@ class ActorsController extends Controller
     }
 
     public function deleteActor($id){
-    	$actors = Actor::findOrFail($id);
-    	$actors->delete();
+		$actorMovies = ActorMovie::select("actormovies")->where('id_actor', '='	, $id);
+		$actorMovies->delete();
 
-
+		$actors = Actor::findOrFail($id);
+		$actors->delete();
+			
     	Notification::success('Actor eliminado');
     	return redirect('/actors/indexActors');
     }
