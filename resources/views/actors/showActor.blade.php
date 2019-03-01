@@ -20,20 +20,27 @@
                 {{$actors->nom_actor}}
             </h1>
 
-            <h2 style="min-height:45px;margin:2px 0 3px 0;font-size: 2em;">
-                Fecha nacmiento: {{$actors->data_naixement}}
-            </h2>
+            <p style="font-size: 18px;"><Strong>
+                Fecha nacmiento:</Strong> {{$actors->data_naixement}}
+            </p>
 
-            <h2 style="min-height:45px;margin:2px 0 3px 0;font-size: 2em;">
-                Nacionalidad: {{$actors->nacionalitat}}
-            </h2><br>
+            <p style="font-size: 18px;"><Strong>
+                Nacionalidad:</Strong> {{$actors->nacionalitat}}
+            </p>
 
-            <h2 style="min-height:45px;margin:2px 0 3px 0;font-size: 2em;">
-            	Peliculas en las que participa: 
-            </h2>
-
+            <a id="puntFinal"style="font-size: 18px;"><Strong>Peliculas en las que participa:</Strong>
+			@foreach($ActorMovies as $ActorMovie)
+					@foreach($movies as $movie)
+						<?php
+						$idActorPeli = $ActorMovie->id_movie;
+						$idPeli = $movie->id
+						?>
+							@if ($idActorPeli == $idPeli)
+								{{$movie->title.','}}
+							@endif
+					@endforeach
+				@endforeach</a>
             
-
             <a type="button" href="{{url('/actors/editActor/'.$actors->id)}}" class="btn btn-warning">Editar Actor</a>
 
 
@@ -46,13 +53,23 @@
 			    </button>
 			</form>
 
-
-
             <a type="button" href="{{url('/actors/indexActors')}}" class="btn btn-default">Volver al listado</a>
 
 
 
 	    </div>
 	</div>
+
+	<script>
+
+		var llistat = document.getElementById("puntFinal").innerHTML;
+		var n = llistat.lastIndexOf(",");
+
+		llistat = llistat.substring(0, n) +'. '+ llistat.substring(n + 1);
+		document.getElementById("puntFinal").innerHTML = (llistat);
+
+	</script>
+
+
 
 @stop
