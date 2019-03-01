@@ -31,7 +31,7 @@
 					<div class="form-group">
 						<label for="director">Director</label>
 						<br>
-						<select name="director">
+						<select name="director" class="form-control">
 	               		@foreach( $directors as $dire )
 	               				<option id="director" class="form-control" value="{{$dire->id}}" required>{{$dire->nom_director}}</option>
 	               		@endforeach

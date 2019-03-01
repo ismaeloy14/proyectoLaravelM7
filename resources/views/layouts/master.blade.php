@@ -8,16 +8,18 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
+    
+    <title>Videoclub - Ismael y Alex</title>
   </head>
   <body>
     @include('partials.navbar')
 
     <div class="container">
+
       @notification()
       
       @yield('content')
+      
     </div>
 
     <!-- Optional JavaScript -->

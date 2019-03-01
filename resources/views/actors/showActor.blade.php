@@ -28,7 +28,7 @@
                 Nacionalidad:</Strong> {{$actors->nacionalitat}}
             </p>
 
-			<p id="puntFinal"style="font-size: 18px;"><Strong>Peliculas en las que participa:</Strong>
+			<p id="puntFinal"style="font-size: 18px;"><Strong>Peliculas protagonizadas:</Strong>
 			@foreach($ActorMovies as $ActorMovie)
 					@foreach($movies as $movie)
 						<?php
@@ -42,7 +42,10 @@
 					@endforeach
 				@endforeach</p>
             
-            <a type="button" href="{{url('/actors/editActor/'.$actors->id)}}" class="btn btn-warning">Editar Actor</a>
+			<a class="btn btn-warning" href="{{ url('/actors/editActor/'.$actors->id) }}"><span class="glyphicon glyphicon-pencil"></span>Editar actor</a>
+			
+			
+			
 
 
             <form action="{{action('ActorsController@deleteActor', $actors->id)}}" 
@@ -54,7 +57,7 @@
 			    </button>
 			</form>
 
-            <a type="button" href="{{url('/actors/indexActors')}}" class="btn btn-default">Volver al listado</a>
+			<a class="btn btn-default" href="{{ url('/actors/indexActors') }}"><span class="glyphicon glyphicon-chevron-left"></span>Volver al listado</a>
 
 
 
@@ -62,12 +65,17 @@
 	</div>
 
 	<script>
-
+		
 		var llistat = document.getElementById("puntFinal").innerHTML;
 		var n = llistat.lastIndexOf(",");
 
-		llistat = llistat.substring(0, n) +'. '+ llistat.substring(n + 1);
-		document.getElementById("puntFinal").innerHTML = (llistat);
+		if (llistat.length > 54) {
+			llistat = llistat.substring(0, n) +'.'+ llistat.substring(n + 1);
+			document.getElementById("puntFinal").innerHTML = (llistat);
+		} else {
+			document.getElementById("puntFinal").innerHTML = llistat.substring(0, 55) + 'sin información.';
+		}
+		
 
 	</script>
 

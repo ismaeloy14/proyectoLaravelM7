@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Movie;
 use App\User;
 use App\Actor;
+use App\ActorMovie;
 
 class DatabaseSeeder extends Seeder {
     /**
@@ -22,7 +23,8 @@ class DatabaseSeeder extends Seeder {
       Model::reguard();
 
 			self::seedCatalog();
-			self::seedActors();
+      self::seedActors();
+      self::seedActorMovies();
 	  		$this->command->info('Tabla inicializada con datos!');
   		}
 
@@ -36,10 +38,6 @@ class DatabaseSeeder extends Seeder {
   			$user->save();
   		}	
 
-
-
-
-
 		private function seedCatalog(){
 			DB::table('movies')->delete();
 			foreach ( $this->arrayPeliculas as $pelicula ) {
@@ -52,7 +50,31 @@ class DatabaseSeeder extends Seeder {
 			    $p->synopsis = $pelicula['synopsis'];
 			    $p->save();
 			}
-		}
+    }
+    
+    private function seedActors(){
+			DB::table('actors')->delete();
+			foreach ( $this->actors as $actor ) {
+			    $a = new Actor;
+			    $a->nom_actor = $actor['nom_actor'];
+			    $a->nacionalitat = $actor['nacionalitat'];
+          $a->data_naixement = $actor['data_naixement'];
+          $a->retrato = $actor['retrato'];
+			    $a->save();
+			}
+    }
+
+    private function seedActorMovies(){
+			DB::table('actormovies')->delete();
+			foreach ( $this->actormovies as $actormovie ) {
+			    $am = new ActorMovie;
+			    $am->id_actor = $actormovie['id_actor'];
+			    $am->id_movie = $actormovie['id_movie'];
+			    $am->save();
+			}
+    }
+    
+
 
     
 
@@ -189,7 +211,7 @@ class DatabaseSeeder extends Seeder {
       'title' => 'La chaqueta metálica',
       'year' => '1987', 
       'id_director' => '15', 
-      'poster' => 'http://www.vayacine.com/images/2007/06/el-caracol-metalico.jpg', 
+      'poster' => 'https://m.media-amazon.com/images/M/MV5BNzkxODk0NjEtYjc4Mi00ZDI0LTgyYjEtYzc1NDkxY2YzYTgyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg', 
       'rented' => true, 
       'synopsis' => 'Un grupo de reclutas se prepara en Parish Island, centro de entrenamiento de la marina norteamericana. Allí está el sargento Hartman, duro e implacable, cuya única misión en la vida es endurecer el cuerpo y el alma de los novatos, para que puedan defenderse del enemigo. Pero no todos los jóvenes están preparados para soportar sus métodos. '
     ),
@@ -219,17 +241,6 @@ class DatabaseSeeder extends Seeder {
     )
   );
 
-		private function seedActors(){
-			DB::table('actors')->delete();
-			foreach ( $this->actors as $actor ) {
-			    $a = new Actor;
-			    $a->nom_actor = $actor['nom_actor'];
-			    $a->nacionalitat = $actor['nacionalitat'];
-			    $a->data_naixement = $actor['data_naixement'];
-			    $a->save();
-			}
-		}
-
 		private $actors = array(
 			array(
 				'nom_actor' => 'Marlon Brando',
@@ -249,22 +260,185 @@ class DatabaseSeeder extends Seeder {
 				'nacionalitat' => 'Estadounidense',
         'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTQzMzg1ODAyNl5BMl5BanBnXkFtZTYwMjAxODQ1._V1_UX214_CR0,0,214,317_AL_.jpg',  
 				'data_naixement' => '1940/04/25'
+      ),
+			array(
+				'nom_actor' => 'John Travolta',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTUwNjQ0ODkxN15BMl5BanBnXkFtZTcwMDc5NjQwNw@@._V1_UY317_CR11,0,214,317_AL_.jpg',  
+				'data_naixement' => '1954/02/18'
+      ),
+			array(
+				'nom_actor' => 'Morgan Freeman',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTc0MDMyMzI2OF5BMl5BanBnXkFtZTcwMzM2OTk1MQ@@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1937/06/01'
+      ),
+			array(
+				'nom_actor' => 'Paul Newman',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BODUwMDYwNDg3N15BMl5BanBnXkFtZTcwODEzNTgxMw@@._V1_UY317_CR22,0,214,317_AL_.jpg',  
+				'data_naixement' => '1925/01/26'
+      ),
+      array(
+				'nom_actor' => 'Roberto Benigni',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTUwMzI1Nzg5NF5BMl5BanBnXkFtZTYwODU5NjYz._V1_UY317_CR13,0,214,317_AL_.jpg',  
+				'data_naixement' => '1952/10/27'
+      ),
+      array(
+				'nom_actor' => 'Robert De Niro',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjAwNDU3MzcyOV5BMl5BanBnXkFtZTcwMjc0MTIxMw@@._V1_UY317_CR13,0,214,317_AL_.jpg',  
+				'data_naixement' => '1943/08/17'
+      ),
+      array(
+				'nom_actor' => 'Jack Nicholson',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTQ3OTY0ODk0M15BMl5BanBnXkFtZTYwNzE4Njc4._V1_UY317_CR7,0,214,317_AL_.jpg',  
+				'data_naixement' => '1937/04/22'
+      ),
+      array(
+				'nom_actor' => 'Edward Norton',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTYwNjQ5MTI1NF5BMl5BanBnXkFtZTcwMzU5MTI2Mw@@._V1_UY317_CR16,0,214,317_AL_.jpg',  
+				'data_naixement' => '1969/08/18'
+      ),
+      array(
+				'nom_actor' => 'Clint Eastwood',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTg3MDc0MjY0OV5BMl5BanBnXkFtZTcwNzU1MDAxOA@@._V1_UY317_CR10,0,214,317_AL_.jpg',  
+				'data_naixement' => '1930/05/31'
+      ),
+      array(
+				'nom_actor' => 'Adrien Brody',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjI3ODkxMjU3OF5BMl5BanBnXkFtZTgwMTk2Njk3MTE@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1973/04/14'
+      ),
+      array(
+				'nom_actor' => 'Brad Pitt',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1963/12/18'
+      ),
+      array(
+				'nom_actor' => 'Anthony Hopkins',
+				'nacionalitat' => 'Galesa',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTg5ODk1NTc5Ml5BMl5BanBnXkFtZTYwMjAwOTI4._V1_UY317_CR6,0,214,317_AL_.jpg',  
+				'data_naixement' => '1937/12/31'
+      ),
+      array(
+				'nom_actor' => 'Malcolm McDowell',
+				'nacionalitat' => 'Inglesa',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTcxMjQxNzczM15BMl5BanBnXkFtZTcwMTg3MTMwNw@@._V1_UY317_CR6,0,214,317_AL_.jpg',  
+				'data_naixement' => '1943/06/13'
+      ),
+      array(
+				'nom_actor' => 'Matthew Modine',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTU3MzQyOTM5MF5BMl5BanBnXkFtZTgwNDg2Njk2OTE@._V1_UY317_CR8,0,214,317_AL_.jpg',  
+				'data_naixement' => '1943/06/13'
+      ),
+      array(
+				'nom_actor' => 'Harrison Ford',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTY4Mjg0NjIxOV5BMl5BanBnXkFtZTcwMTM2NTI3MQ@@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1942/07/13'
+      ),
+      array(
+				'nom_actor' => 'Cybill Shepherd',
+				'nacionalitat' => 'Estadounidense',
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTUzNTA1Mzg5M15BMl5BanBnXkFtZTYwNjkzNDk3._V1_UX214_CR0,0,214,317_AL_.jpg',  
+				'data_naixement' => '1950/02/18'
       )
 			);
 
-		/*
-		private $users = array(
-			array(
-				'name' => 'alex',
-				'email' => 'alexfreixa18@gmail.com', 
-				'password' => '$2a$10$42LMrLPm6nUYsl4UtRwxs.HTK18HQSHecgAX2MlESP.8rRGILaCi6'
-			),
-			array(
-				'name' => 'test',
-				'email' => 'test@testing.com', 
-				'password' => '$2a$10$UAHpN6DSPWTy1OXW53cWNe7iCfJw/.5ze5/sLqGzT4sTZZ8yLqvUe'
-			)
-		);*/
+      private $actormovies = array(
+        array(
+          'id_actor' => '1', //'Marlon Brando'
+          'id_movie' => '1'
+        ),
+        array(
+          'id_actor' => '2', //'Liam Neeson',
+          'id_movie' => '3'
+        ),
+        array(
+          'id_actor' => '3', //'Al Pacino',
+          'id_movie' => '2'
+        ),
+        array(
+          'id_actor' => '4', //'John Travolta',
+          'id_movie' => '4'
+        ),
+        array(
+          'id_actor' => '5', //'Morgan Freeman',
+          'id_movie' => '5'
+        ),
+        array(
+          'id_actor' => '6', //'Paul Newman',
+          'id_movie' => '6'
+        ),
+        array(
+          'id_actor' => '7', //'Roberto Benigni',
+          'id_movie' => '7'
+        ),
+        array(
+          'id_actor' => '8', //'Robert De Niro',
+          'id_movie' => '8'
+        ),
+        array(
+          'id_actor' => '9', //'Jack Nicholson',
+          'id_movie' => '9'
+        ),
+        array(
+          'id_actor' => '10', //'Edward Norton',
+          'id_movie' => '10'
+        ),
+        array(
+          'id_actor' => '11', //'Clint Eastwood',
+          'id_movie' => '11'
+        ),
+        array(
+          'id_actor' => '12', //'Adrien Brody',
+          'id_movie' => '13'
+        ),
+        array(
+          'id_actor' => '3', //'Al Pacino',
+          'id_movie' => '12'
+        ),
+        array(
+          'id_actor' => '13', //'Brad Pitt',
+          'id_movie' => '14'
+        ),
+        array(
+          'id_actor' => '14', //'Anthony Hopkins',
+          'id_movie' => '15'
+        ),
+        array(
+          'id_actor' => '15', //'Malcolm McDowell',
+          'id_movie' => '16'
+        ),
+        array(
+          'id_actor' => '16', //'Matthew Modine',
+          'id_movie' => '17'
+        ),
+        array(
+          'id_actor' => '17', //'Harrison Ford',
+          'id_movie' => '18'
+        ),
+        array(
+          'id_actor' => '18', //'Cybill Shepherd',
+          'id_movie' => '19'
+        ),
+        array(
+          'id_actor' => '13', //'Brad Pitt',
+          'id_movie' => '20'
+        ),
+        array(
+          'id_actor' => '5', //'Morgan Freeman',
+          'id_movie' => '20'
+        )
+        );
 		
 		
 }
