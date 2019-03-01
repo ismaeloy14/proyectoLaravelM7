@@ -336,7 +336,7 @@ class DatabaseSeeder extends Seeder {
       array(
 				'nom_actor' => 'Matthew Modine',
 				'nacionalitat' => 'Estadounidense',
-        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTcxMjQxNzczM15BMl5BanBnXkFtZTcwMTg3MTMwNw@@._V1_UY317_CR6,0,214,317_AL_.jpg',  
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTU3MzQyOTM5MF5BMl5BanBnXkFtZTgwNDg2Njk2OTE@._V1_UY317_CR8,0,214,317_AL_.jpg',  
 				'data_naixement' => '1943/06/13'
       ),
       array(
@@ -348,7 +348,7 @@ class DatabaseSeeder extends Seeder {
       array(
 				'nom_actor' => 'Cybill Shepherd',
 				'nacionalitat' => 'Estadounidense',
-        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTY4Mjg0NjIxOV5BMl5BanBnXkFtZTcwMTM2NTI3MQ@@._V1_UX214_CR0,0,214,317_AL_.jpg',  
+        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMTUzNTA1Mzg5M15BMl5BanBnXkFtZTYwNjkzNDk3._V1_UX214_CR0,0,214,317_AL_.jpg',  
 				'data_naixement' => '1950/02/18'
       )
 			);
