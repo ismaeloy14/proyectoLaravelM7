@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Movie;
 use App\User;
 use App\Actor;
+use App\ActorMovie;
 
 class DatabaseSeeder extends Seeder {
     /**
@@ -22,7 +23,8 @@ class DatabaseSeeder extends Seeder {
       Model::reguard();
 
 			self::seedCatalog();
-			self::seedActors();
+      self::seedActors();
+      self::seedActorMovies();
 	  		$this->command->info('Tabla inicializada con datos!');
   		}
 
@@ -36,10 +38,6 @@ class DatabaseSeeder extends Seeder {
   			$user->save();
   		}	
 
-
-
-
-
 		private function seedCatalog(){
 			DB::table('movies')->delete();
 			foreach ( $this->arrayPeliculas as $pelicula ) {
@@ -52,7 +50,31 @@ class DatabaseSeeder extends Seeder {
 			    $p->synopsis = $pelicula['synopsis'];
 			    $p->save();
 			}
-		}
+    }
+    
+    private function seedActors(){
+			DB::table('actors')->delete();
+			foreach ( $this->actors as $actor ) {
+			    $a = new Actor;
+			    $a->nom_actor = $actor['nom_actor'];
+			    $a->nacionalitat = $actor['nacionalitat'];
+          $a->data_naixement = $actor['data_naixement'];
+          $a->retrato = $actor['retrato'];
+			    $a->save();
+			}
+    }
+
+    private function seedActorMovies(){
+			DB::table('actormovies')->delete();
+			foreach ( $this->actormovies as $actormovie ) {
+			    $am = new ActorMovie;
+			    $am->id_actor = $actormovie['id_actor'];
+			    $am->id_movie = $actormovie['id_movie'];
+			    $am->save();
+			}
+    }
+    
+
 
     
 
@@ -219,18 +241,6 @@ class DatabaseSeeder extends Seeder {
     )
   );
 
-		private function seedActors(){
-			DB::table('actors')->delete();
-			foreach ( $this->actors as $actor ) {
-			    $a = new Actor;
-			    $a->nom_actor = $actor['nom_actor'];
-			    $a->nacionalitat = $actor['nacionalitat'];
-          $a->data_naixement = $actor['data_naixement'];
-          $a->retrato = $actor['retrato'];
-			    $a->save();
-			}
-		}
-
 		private $actors = array(
 			array(
 				'nom_actor' => 'Marlon Brando',
@@ -303,12 +313,6 @@ class DatabaseSeeder extends Seeder {
 				'nom_actor' => 'Adrien Brody',
 				'nacionalitat' => 'Estadounidense',
         'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjI3ODkxMjU3OF5BMl5BanBnXkFtZTgwMTk2Njk3MTE@._V1_UX214_CR0,0,214,317_AL_.jpg',  
-				'data_naixement' => '1930/05/31'
-      ),
-      array(
-				'nom_actor' => 'Adrien Brody',
-				'nacionalitat' => 'Estadounidense',
-        'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjI3ODkxMjU3OF5BMl5BanBnXkFtZTgwMTk2Njk3MTE@._V1_UX214_CR0,0,214,317_AL_.jpg',  
 				'data_naixement' => '1973/04/14'
       ),
       array(
@@ -349,19 +353,92 @@ class DatabaseSeeder extends Seeder {
       )
 			);
 
-		/*
-		private $users = array(
-			array(
-				'name' => 'alex',
-				'email' => 'alexfreixa18@gmail.com', 
-				'password' => '$2a$10$42LMrLPm6nUYsl4UtRwxs.HTK18HQSHecgAX2MlESP.8rRGILaCi6'
-			),
-			array(
-				'name' => 'test',
-				'email' => 'test@testing.com', 
-				'password' => '$2a$10$UAHpN6DSPWTy1OXW53cWNe7iCfJw/.5ze5/sLqGzT4sTZZ8yLqvUe'
-			)
-		);*/
+      private $actormovies = array(
+        array(
+          'id_actor' => '1', //'Marlon Brando'
+          'id_movie' => '1'
+        ),
+        array(
+          'id_actor' => '2', //'Liam Neeson',
+          'id_movie' => '3'
+        ),
+        array(
+          'id_actor' => '3', //'Al Pacino',
+          'id_movie' => '2'
+        ),
+        array(
+          'id_actor' => '4', //'John Travolta',
+          'id_movie' => '4'
+        ),
+        array(
+          'id_actor' => '5', //'Morgan Freeman',
+          'id_movie' => '5'
+        ),
+        array(
+          'id_actor' => '6', //'Paul Newman',
+          'id_movie' => '6'
+        ),
+        array(
+          'id_actor' => '7', //'Roberto Benigni',
+          'id_movie' => '7'
+        ),
+        array(
+          'id_actor' => '8', //'Robert De Niro',
+          'id_movie' => '8'
+        ),
+        array(
+          'id_actor' => '9', //'Jack Nicholson',
+          'id_movie' => '9'
+        ),
+        array(
+          'id_actor' => '10', //'Edward Norton',
+          'id_movie' => '10'
+        ),
+        array(
+          'id_actor' => '11', //'Clint Eastwood',
+          'id_movie' => '11'
+        ),
+        array(
+          'id_actor' => '12', //'Adrien Brody',
+          'id_movie' => '13'
+        ),
+        array(
+          'id_actor' => '3', //'Al Pacino',
+          'id_movie' => '12'
+        ),
+        array(
+          'id_actor' => '13', //'Brad Pitt',
+          'id_movie' => '14'
+        ),
+        array(
+          'id_actor' => '14', //'Anthony Hopkins',
+          'id_movie' => '15'
+        ),
+        array(
+          'id_actor' => '15', //'Malcolm McDowell',
+          'id_movie' => '16'
+        ),
+        array(
+          'id_actor' => '16', //'Matthew Modine',
+          'id_movie' => '17'
+        ),
+        array(
+          'id_actor' => '17', //'Harrison Ford',
+          'id_movie' => '18'
+        ),
+        array(
+          'id_actor' => '18', //'Cybill Shepherd',
+          'id_movie' => '19'
+        ),
+        array(
+          'id_actor' => '13', //'Brad Pitt',
+          'id_movie' => '20'
+        ),
+        array(
+          'id_actor' => '5', //'Morgan Freeman',
+          'id_movie' => '20'
+        )
+        );
 		
 		
 }

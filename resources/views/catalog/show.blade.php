@@ -29,19 +29,21 @@
                  {{$directors->nom_director}}</a>
             </p>
 
+			<!--<p style="font-size: 18px;"><strong>Actores:</strong>
+            	<a href="{{ url('/directors/showDirector/' . $directors->id ) }}">{{ $directors->nom_director }}</a>
+            </p>-->
+
             <p style="font-size: 18px;"><Strong>Resumen</Strong>: {{$pelicula->synopsis}}</p>
 
+
             @if($pelicula->rented==true)
-            <p style="font-size: 18px;"><Strong>Estado</Strong>: Película disponible</p>
+            	<p style="font-size: 18px;"><Strong>Estado</Strong>: Película disponible</p>
             @else
-            <p style="font-size: 18px;"><Strong>Estado</Strong>: Película actualmente alquilada</p>
+            	<p style="font-size: 18px;"><Strong>Estado</Strong>: Película actualmente alquilada</p>
             @endif
-
-
 
             @if($pelicula->rented==1)
             
-
             <form action="{{action('CatalogController@putRent', $pelicula->id)}}" 
 			    method="POST" style="display:inline">
 			    {{ method_field('PUT') }}
@@ -50,9 +52,6 @@
 			        Alquilar película
 			    </button>
 			</form>
-
-
-            
 
             @else
 
@@ -65,12 +64,9 @@
 			    </button>
 			</form>
 
-           
-
             @endif
 
 			<a href="{{ url('/catalog/edit/' . $pelicula->id ) }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>Editar película</a>
-
 
             <form action="{{action('CatalogController@deleteMovie', $pelicula->id)}}" 
 			    method="POST" style="display:inline">
@@ -81,12 +77,7 @@
 			    </button>
 			</form>
 
-
-
-            
 			<a class="btn btn-default" href="{{ url('/catalog/') }}"><span class="glyphicon glyphicon-chevron-left"></span>Volver al listado</a>
-
-
 
 	    </div>
 	</div>
