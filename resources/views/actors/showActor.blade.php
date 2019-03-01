@@ -65,12 +65,17 @@
 	</div>
 
 	<script>
-
+		
 		var llistat = document.getElementById("puntFinal").innerHTML;
 		var n = llistat.lastIndexOf(",");
 
-		llistat = llistat.substring(0, n) +'. '+ llistat.substring(n + 1);
-		document.getElementById("puntFinal").innerHTML = (llistat);
+		if (llistat.length > 54) {
+			llistat = llistat.substring(0, n) +'.'+ llistat.substring(n + 1);
+			document.getElementById("puntFinal").innerHTML = (llistat);
+		} else {
+			document.getElementById("puntFinal").innerHTML = llistat.substring(0, 55) + 'sense informació.';
+		}
+		
 
 	</script>
 
