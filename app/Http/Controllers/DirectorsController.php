@@ -39,8 +39,8 @@ class DirectorsController extends Controller
     public function postCreate(Request $request){
     	$directors = new Director;
     	$directors->nom_director = $request->input('nom_director');
-		$directors->nacionalitat = $request->input('nacionalitat');
-		$directors->data_naixement = $request->input('data_naixement');
+			$directors->nacionalitat = $request->input('nacionalitat');
+			$directors->data_naixement = $request->input('data_naixement');
     	$directors->imagenDirector = $request->input('imagenDirector');
     	$directors->save();
 
@@ -52,8 +52,8 @@ class DirectorsController extends Controller
     	$directors = Director::findOrFail($id);
     	$directors->nom_director = $request->input('nom_director');
     	$directors->nacionalitat = $request->input('nacionalitat');
-		$directors->data_naixement = $request->input('data_naixement');
-		$directors->imagenDirector = $request->input('imagenDirector');
+			$directors->data_naixement = $request->input('data_naixement');
+			$directors->imagenDirector = $request->input('imagenDirector');
     	$directors->save();
 
     	Notification::success('Director modificado');

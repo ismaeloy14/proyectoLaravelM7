@@ -41,7 +41,7 @@
 			</p>
 
             
-			<a class="btn btn-warning" href="{{ url('/directors/editDirector/'.$director->id) }}"><span class="glyphicon glyphicon-pencil"></span>Editar actor</a>
+			<a class="btn btn-warning" href="{{ url('/directors/editDirector/'.$director->id) }}"><span class="glyphicon glyphicon-pencil"></span>Editar Director</a>
 
             <form action="{{action('DirectorsController@deleteDirector', $director->id)}}" 
 			    method="POST" style="display:inline">

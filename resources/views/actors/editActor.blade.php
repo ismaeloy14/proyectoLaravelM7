@@ -31,10 +31,30 @@
 	               <input type="text" name="retrato" id="retrato" class="form-control" value="{{$actors->retrato}}">
 	            </div>
 
-				<div class="form-group">
+					<div class="form-group">
 	               <label for="data_naixement">Fecha nacimiento</label>
 	               <input type="date" name="data_naixement" id="data_naixement" class="form-control" value="{{$actors->data_naixement}}" required>
 	            </div>
+
+					<div class="form-group">
+
+					@if(!$ActorMovies->isEmpty())
+
+						@foreach($ActorMovies as $ActorMovie)
+							@foreach($arrayPeliculas as $pelicula)
+								@if (($ActorMovie->id_movie) == ($pelicula->id))
+									<label><input type="checkbox" name="checkbox_movie[]" value="{{$pelicula->id}}" checked> {{$pelicula->title}}</label><br/>
+								@else
+									<label><input type="checkbox" name="checkbox_movie[]" value="{{$pelicula->id}}"> {{$pelicula->title}}</label><br/>
+								@endif
+							@endforeach
+						@endforeach
+					@else
+							@foreach($arrayPeliculas as $pelicula)
+									<label><input type="checkbox" name="checkbox_movie[]" value="{{$pelicula->id}}"> {{$pelicula->title}}</label><br/>
+							@endforeach
+					@endif
+					</div>
 
 	            
 
@@ -44,7 +64,6 @@
 	               </button>
 	            </div>
 
-	            {{-- TODO: Cerrar formulario --}}
         	</form>
          </div>
       </div>

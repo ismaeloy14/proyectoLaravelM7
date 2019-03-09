@@ -30,17 +30,17 @@
 
 			<p id="puntFinal"style="font-size: 18px;"><Strong>Peliculas protagonizadas:</Strong>
 			@foreach($ActorMovies as $ActorMovie)
-					@foreach($movies as $movie)
-						<?php
-						$idActorPeli = $ActorMovie->id_movie;
-						$idPeli = $movie->id
-						?>
-							@if ($idActorPeli == $idPeli)
-								
-								<a href="{{ url('/catalog/show/' . $movie->id ) }}">{{$movie->title}}</a>,
-							@endif
-					@endforeach
-				@endforeach</p>
+				@foreach($movies as $movie)
+					<?php
+					$idActorPeli = $ActorMovie->id_movie;
+					$idPeli = $movie->id
+					?>
+						@if ($idActorPeli == $idPeli)
+							
+							<a href="{{ url('/catalog/show/' . $movie->id ) }}">{{$movie->title}}</a>,
+						@endif
+				@endforeach
+			@endforeach</p>
             
 			<a class="btn btn-warning" href="{{ url('/actors/editActor/'.$actors->id) }}"><span class="glyphicon glyphicon-pencil"></span>Editar actor</a>
 			

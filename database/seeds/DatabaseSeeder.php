@@ -250,7 +250,7 @@ class DatabaseSeeder extends Seeder {
 			),
 			array(
 				'nom_actor' => 'Liam Neeson',
-        'nacionalitat' => 'Ingles',
+        'nacionalitat' => 'Inglesa',
         'data_naixement' => '1952/06/07',
         'retrato'=> 'https://m.media-amazon.com/images/M/MV5BMjA1MTQ3NzU1MV5BMl5BanBnXkFtZTgwMDE3Mjg0MzE@._V1_UY317_CR52,0,214,317_AL_.jpg'
 				
