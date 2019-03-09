@@ -5,16 +5,10 @@
 	<div class="row">
 
 	    <div class="col-sm-4">
-
-	        {{-- TODO: Imagen de la película --}}
-
 	       	<img src="{{$pelicula->poster}}" style="height:33em"/>
-
-
 	    </div>
-	    <div class="col-sm-8">
 
-	        {{-- TODO: Datos de la película --}}
+	    <div class="col-sm-8">
 
 	        <h1 style="min-height:45px;margin:5px 0 10px 0;font-size: 4em;">
                 {{$pelicula->title}}
@@ -28,10 +22,6 @@
             <a href="{{ url('/directors/showDirector/' . $directors->id ) }}">
                  {{$directors->nom_director}}</a>
             </p>
-
-			<!--<p style="font-size: 18px;"><strong>Actores:</strong>
-            	<a href="{{ url('/directors/showDirector/' . $directors->id ) }}">{{ $directors->nom_director }}</a>
-            </p>-->
 
             <p style="font-size: 18px;"><Strong>Resumen</Strong>: {{$pelicula->synopsis}}</p>
 

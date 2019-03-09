@@ -23,8 +23,6 @@ class ActorsController extends Controller
 			$ActorMovies = ActorMovie::where('id_actor', '=', $id)->get();
 			$movies = Movie::All();
 			
-			//return view('actors.showActor', array('actors'=>$actors), array('ActorMovies'=>$ActorMovies));
-			
 			return view('actors.showActor', compact('actors', 'ActorMovies', 'movies'));
     }
 
