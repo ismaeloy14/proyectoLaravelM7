@@ -56,14 +56,17 @@ class ActorsController extends Controller
 
 			$ultimActor = Actor::max("id"); //Obtenim el "id" més alt de l'actor que justament em insertat anteriorment en aquesta mateixa funció postCreate.
 
+			if (!empty($request->checkbox_movie)) { //Si es passa algun checkbox "checked" fa els corresponents inserts.
+
     	foreach ($request->checkbox_movie as $checkbox_movie) { //Per cada 
     		$actorMovies = new ActorMovie;
     		$actorMovies->id_actor = $ultimActor;
     		$actorMovies->id_movie = $checkbox_movie;
     		$actorMovies->save();
-    	}
+			}
+			
+			}
 
-    	
     	Notification::success('Actor añadido');
     	return redirect('/actors/indexActors');
     }
@@ -78,14 +81,17 @@ class ActorsController extends Controller
 
 			$relacioActorMovies = ActorMovie::where('id_actor', '='	, $id); //Elimina les relacions de ActorMovies
 			$relacioActorMovies->delete();
-			
-			foreach ($request->checkbox_movie as $checkbox_movie) { //Per cada 
-				$actorMovies = new ActorMovie;
-    		$actorMovies->id_actor = $id;
-				$actorMovies->id_movie = $checkbox_movie;
-    		$actorMovies->save();
-			}
 
+			if (!empty($request->checkbox_movie)) { //Si es passa algun checkbox "checked" fa els corresponents inserts.
+
+				foreach ($request->checkbox_movie as $checkbox_movie) { //Per cada 
+					$actorMovies = new ActorMovie;
+					$actorMovies->id_actor = $id;
+					$actorMovies->id_movie = $checkbox_movie;
+					$actorMovies->save();
+				}
+
+			}
 			
 
     	Notification::success('Actor modificado');

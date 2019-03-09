@@ -37,6 +37,9 @@
 	            </div>
 
 					<div class="form-group">
+
+					@if(!$ActorMovies->isEmpty())
+
 						@foreach($ActorMovies as $ActorMovie)
 							@foreach($arrayPeliculas as $pelicula)
 								@if (($ActorMovie->id_movie) == ($pelicula->id))
@@ -46,6 +49,11 @@
 								@endif
 							@endforeach
 						@endforeach
+					@else
+							@foreach($arrayPeliculas as $pelicula)
+									<label><input type="checkbox" name="checkbox_movie[]" value="{{$pelicula->id}}"> {{$pelicula->title}}</label><br/>
+							@endforeach
+					@endif
 					</div>
 
 	            <div class="form-group text-center">
