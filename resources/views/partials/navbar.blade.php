@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="/proyectoLaravelM7/public/catalog" style="color:#777"><span style="font-size:15pt">&#9820;</span> Videoclub</a>
+        <a class="navbar-brand" href="{{ url('/catalog') }}" style="color:#777"><span style="font-size:15pt">&#9820;</span> Videoclub</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -35,8 +35,12 @@ class ActorsController extends Controller
     }
 
     public function getEdit($id){
-    	$actors = Actor::findOrFail($id);
-    	return view('actors.editActor', array('actors'=>$actors));
+			$actors = Actor::findOrFail($id);
+			$arrayPeliculas = Movie::All();
+			$ActorMovies = ActorMovie::where('id_actor', '=', $id)->get();
+
+			//dd($ActorMovies);
+			return view('actors.editActor',compact('actors', 'arrayPeliculas', 'ActorMovies'));
 		}
 		
 
@@ -50,9 +54,9 @@ class ActorsController extends Controller
     	$actors->save();
 
 
-			$ultimActor = Actor::max("id");
+			$ultimActor = Actor::max("id"); //Obtenim el "id" més alt de l'actor que justament em insertat anteriorment en aquesta mateixa funció postCreate.
 
-    	foreach ($request->checkbox_movie as $checkbox_movie) {
+    	foreach ($request->checkbox_movie as $checkbox_movie) { //Per cada 
     		$actorMovies = new ActorMovie;
     		$actorMovies->id_actor = $ultimActor;
     		$actorMovies->id_movie = $checkbox_movie;
@@ -70,7 +74,19 @@ class ActorsController extends Controller
     	$actors->nacionalitat = $request->input('nacionalitat');
     	$actors->retrato = $request->input('retrato');
     	$actors->data_naixement = $request->input('data_naixement');
-    	$actors->save();
+			$actors->save();
+
+			$relacioActorMovies = ActorMovie::where('id_actor', '='	, $id); //Elimina les relacions de ActorMovies
+			$relacioActorMovies->delete();
+			
+			foreach ($request->checkbox_movie as $checkbox_movie) { //Per cada 
+				$actorMovies = new ActorMovie;
+    		$actorMovies->id_actor = $id;
+				$actorMovies->id_movie = $checkbox_movie;
+    		$actorMovies->save();
+			}
+
+			
 
     	Notification::success('Actor modificado');
     	return redirect('/actors/showActor/'.$id);

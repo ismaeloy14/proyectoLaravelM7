@@ -31,10 +31,22 @@
 	               <input type="text" name="retrato" id="retrato" class="form-control" value="{{$actors->retrato}}">
 	            </div>
 
-				<div class="form-group">
+					<div class="form-group">
 	               <label for="data_naixement">Fecha nacimiento</label>
 	               <input type="date" name="data_naixement" id="data_naixement" class="form-control" value="{{$actors->data_naixement}}" required>
 	            </div>
+
+					<div class="form-group">
+						@foreach($ActorMovies as $ActorMovie)
+							@foreach($arrayPeliculas as $pelicula)
+								@if (($ActorMovie->id_movie) == ($pelicula->id))
+									<label><input type="checkbox" name="checkbox_movie[]" value="{{$pelicula->id}}" checked> {{$pelicula->title}}</label><br/>
+								@else
+									<label><input type="checkbox" name="checkbox_movie[]" value="{{$pelicula->id}}"> {{$pelicula->title}}</label><br/>
+								@endif
+							@endforeach
+						@endforeach
+					</div>
 
 	            <div class="form-group text-center">
 	               <button type="submit" class="btn btn-primary" style="padding:8px 100px;margin-top:25px;">
@@ -42,7 +54,6 @@
 	               </button>
 	            </div>
 
-	            {{-- TODO: Cerrar formulario --}}
         	</form>
          </div>
       </div>
