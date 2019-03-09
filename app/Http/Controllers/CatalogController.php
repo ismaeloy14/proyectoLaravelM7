@@ -9,6 +9,9 @@ use App\Director;
 use App\ActorMovie;
 use Notification;
 
+use App\Exports\MoviesExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class CatalogController extends Controller
 {
 
@@ -104,6 +107,13 @@ class CatalogController extends Controller
     	Notification::success('Pelicula borrada');
     	return redirect('/catalog');
     }
+
+
+    public function exportMovie(){
+    	return Excel::download(new MoviesExport, 'Movies.xlsx');
+    }
+
+
 
 	/*private $arrayPeliculas = array(
 		array(

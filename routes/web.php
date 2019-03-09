@@ -53,4 +53,8 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::put('directors/editDirector/{id}', 'DirectorsController@putEdit');
 	Route::delete('directors/delete/{id}', 'DirectorsController@deleteDirector');
 
+	/*Route::get('/exportarMovie', 'CatalogController@exportMovie');
+	Route::get('/exportarActors', '@');
+	Route::get('/exportarDirectos', '@');*/
+
 });

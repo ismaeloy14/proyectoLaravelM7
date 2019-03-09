@@ -30,13 +30,13 @@
 	            </div>
 
 					<div class="form-group">
-	               <label for="data_naixement">Data de naixement</label>
+	               <label for="data_naixement">Fecha de nacimiento</label>
 	               <input type="date" name="data_naixement" id="data_naixement" class="form-control" required>
 	            </div>
 
 					
 					<div class="form-group">
-						<label for="participa">Pel·licules on participa</label><br/>
+						<label for="participa">Películes donde participa</label><br/>
 						@foreach( $arrayPeliculas as $pelicula )
 							<label><input type="checkbox" name="checkbox_movie[]" value="{{$pelicula->id}}"> {{$pelicula->title}}</label><br/>
 						@endforeach

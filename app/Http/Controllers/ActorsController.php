@@ -12,18 +12,17 @@ use App\ActorMovie;
 class ActorsController extends Controller
 {
 
-
+	/* Esta función nos redirige al "index" de los actores*/
     public function getIndex(){
 			$actors = Actor::all();
 			return view('actors.indexActors', array('arrayActors'=>$actors));
     }
 
+    /*Con el show mostramos toda la información de los actores. Lo que hemos implementado es que en esta vista salen todas las peliculas que ha participado cada actor*/
     public function getShow($id){
 			$actors = Actor::findOrFail($id);
 			$ActorMovies = ActorMovie::where('id_actor', '=', $id)->get();
 			$movies = Movie::All();
-			
-			//return view('actors.showActor', array('actors'=>$actors), array('ActorMovies'=>$ActorMovies));
 			
 			return view('actors.showActor', compact('actors', 'ActorMovies', 'movies'));
     }
@@ -39,7 +38,7 @@ class ActorsController extends Controller
     	return view('actors.editActor', array('actors'=>$actors));
 		}
 		
-
+	/*Aqui creamos el actor. Le hemos puesto un array de checkbox para que se guarde odas las peliculas que ha participado.*/
     public function postCreate(Request $request){
     	$actors = new Actor;
     	

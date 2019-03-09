@@ -17,6 +17,8 @@
     </div>
     @endforeach
 
+    {{--<a href="/exportarMovie" class="btn btn-info">Descargar excel películas</a>--}}
+
 </div>
 
 @stop
